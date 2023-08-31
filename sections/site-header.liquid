@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="{{ 'yamato-site-header.css' | asset_url }}" type="text/css">
+
+<input type="checkbox" id="global-nav-flag" class="ui-controller">
+
+<header class="site-header" role="banner">
+  <div class="site-header__left
+    {% if template == 'index' %}
+      fv-anime2
+    {% endif %}">
+    <h1 class="site-logo">
+      <a href="{{ routes.root_url }}">
+        <img src="{{ 'site-logo.png' | asset_url }}" alt="山の都のやおやさんのロゴ" width="1029" height="997" loading="lazy">
+      </a>
+    </h1>
+
+    <ul class="header-nav alphabet">
+      <li>
+        <a href="{{ routes.root_url }}collections/product_list/">
+          <span class="header-nav-title">shopping</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/commitment#overview">
+          <span class="header-nav-title">about</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/commitment/">
+          <span class="header-nav-title">stories</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}blogs/recipe/">
+          <span class="header-nav-title">recipe</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}blogs/producer/">
+          <span class="header-nav-title">human</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}blogs/news/">
+          <span class="header-nav-title">news</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}#guide">
+          <span class="header-nav-title">guide</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ "https://www.facebook.com/higoyamato/" }}" target="_blank">
+          <span class="header-nav-icon">{% render 'icon-facebook' %}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ "https://www.instagram.com/yamanomiyakono_yaoyasan/" }}" target="_blank">
+          <span class="header-nav-icon">{% render 'icon-instagram' %}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="site-header__right
+    {% if template == 'index' %}
+      fv-anime2
+    {% endif %}">
+    <a href="{{ routes.cart_url }}">
+      <span class="global-nav__label">{{ 'layout.cart.title' | t }} <ins class="cart-item-count">{{ cart.item_count }}</ins></span>
+    </a>
+
+    <label for="global-nav-flag" class="global-nav-drawer-controller">
+      <span class="global-nav-drawer-controller__content">
+        <span></span>
+      </span>
+    </label>
+  </div>
+
+  <div class="yamato-global-header">
+    <div class="yamato-global-header__container">
+      {% render 'global-nav' %}
+    </div>
+  </div>
+</header>
+
+<div style="display: block; visibility: hidden; position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; overflow: hidden;">
+  <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
+    {% render 'icon-cart' %}
+    <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+    <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden" data-cart-count-bubble>
+      <span data-cart-count>{{ cart.item_count }}</span>
+      <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+    </div>
+  </a>
+</div>

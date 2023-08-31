@@ -112,8 +112,7 @@
   .site-footer__rte a:hover,
   .site-footer__linklist-item a:hover,
   .site-footer__copyright-content a:hover {
-    color: {{ footer_text_color_hover }};
-    border-bottom: 1px solid {{ footer_text_color_hover }};
+    opacity: .7;
   }
 
   .site-footer__social-icons .social-icons__link:hover {
@@ -137,215 +136,249 @@
   {%- endif -%}
 {%- endcapture -%}
 
-<footer class="site-footer critical-hidden" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
-  <div class="page-width">
-    <div class="site-footer__content">
-      {%- for block in section.blocks -%}
+<aside class="site-footer__banner page-width">
+  {{ pages["banner_bottom"].content }}
+</aside>
 
-        <div class="site-footer__item
-                    {% if section.blocks.size == 1 %} site-footer__item--center{% endif %}
-                    {{ footer_item }}
-                    {% if block.type == 'newsletter' and section.blocks.size == 3 %}site-footer-newsletter__one-half{% endif %}"
-             {{ block.shopify_attributes }}>
-          <div class="site-footer__item-inner site-footer__item-inner--{{ block.type }}">
+<aside class="footer-guide">
+  <div class="footer-guide-content">
+    <h2 class="heading-b01">
+      <span class="heading-icon">{% render 'icon-cart' %}</span>
+      <span class="heading-label">お買い物ガイド</span>
+      <small>shopping guide</small>
+    </h2>
+    <div class="footer-guide-layout">
+      <div class="footer-guide--column">
+        <h3 class="heading-footer-guide01">商品のお届け</h3>
+        <h4 class="heading-footer-guide02">ご注文</h4>
+        <p class="text-footer-guide">定期宅配（毎週・隔週・月1回）と、その都度のご注文をお選びいただけます。</p>
+        <h4 class="heading-footer-guide02">発送日</h4>
+        <p class="text-footer-guide">お申込みから24時間後にご注文が確定となります。</p>
+        <table class="table-footer-guide" data-scrollable="false">
+          <thead>
+            <tr>
+              <th>ご注文日</th>
+              <th>発送予定日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>火曜・水曜・木曜</th>
+              <td>翌火曜</td>
+            </tr>
+            <tr>
+              <th>金曜・土曜・日曜・月曜</th>
+              <td>翌金曜</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="note-list-footer-guide">
+          <li>年末年始、祝日等を含む場合は発送日が変更となる場合がありますのでご了承ください。</li>
+        </ul>
+        <h4 class="heading-footer-guide02">お届け予定日</h4>
+        <p class="text-footer-guide">地域により発送からのお届け予定日が異なります。</p>
+        <table class="table-footer-guide" data-scrollable="false">
+          <thead>
+            <tr>
+              <th>地域</th>
+              <th>お届け日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>九州（沖縄県を除く）・山口圏内</th>
+              <td>発送日の翌日</td>
+            </tr>
+            <tr>
+              <th>関西・中国・中部</th>
+              <td>発送日の翌日14時以降</td>
+            </tr>
+            <tr>
+              <th>関東・四国・東北・北陸・信越</th>
+              <td>発送日の翌々日</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="note-list-footer-guide">
+          <li>北海道、沖縄、離島への発送はお問い合わせください。</li>
+          <li>宅配事業者の事情により到着が遅れる場合がありますのでご了承ください。</li>
+        </ul>
 
-            {%- if block.settings.title -%}
-              <p class="h4">{{ block.settings.title | escape }}</p>
-            {%- endif -%}
+        <h4 class="heading-footer-guide02">配送時間</h4>
+        <p class="text-footer-guide">午前中 / 14ー16時 / 16ー18時 / 18ー20時 / 19ー21時 の時間帯からお選びいただけます。</p>
+      </div>
+      <div class="footer-guide--column">
+        <h3 class="heading-footer-guide01">お支払方法</h3>
+        <h4 class="heading-footer-guide02">クレジットカード</h4>
+        <p class="text-footer-guide">クレジットカードの種類は、VISA / Master / JCB / AMEX の4種類がご利用いただけます。支払時期はカード会社に準じます。</p>
+        <h4 class="heading-footer-guide02">代金引換</h4>
+        <p class="text-footer-guide">ヤマト便の代金引換便にてお届けいたします。<br>商品のお受け取りの際に、商品代金+送料+代引き手数料（一律330円）をお支払いください。</p>
 
-            {%- case block.type -%}
-              {%- when 'newsletter' -%}
-                <div class="site-footer__newsletter
-                          {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
-                  {%- assign formId = 'ContactFooter' -%}
-                  {% form 'customer', id: formId, novalidate: 'novalidate' %}
-                    {%- if form.posted_successfully? -%}
-                      <p class="form-message form-message--success" tabindex="-1" data-form-status>
-                        {{ 'general.newsletter_form.confirmation' | t }}
-                      </p>
-                    {%- endif -%}
-                    <input type="hidden" name="contact[tags]" value="newsletter">
-                    <div class="input-group {% if form.errors %} input-group--error{% endif %}">
-                      <input type="email"
-                        name="contact[email]"
-                        id="{{ formId }}-email"
-                        class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %}"
-                        value="{{ form.email }}"
-                        placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
-                        aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
-                        aria-required="true"
-                        required
-                        autocorrect="off"
-                        autocapitalize="off"
-                        {% if form.errors %}
-                          aria-invalid="true"
-                          aria-describedby="{{ formId }}-email-error"
-                          data-form-status
-                        {% endif %}>
-                      <span class="input-group__btn">
-                        <button type="submit" class="btn newsletter__submit" name="commit" >
-                          <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
-                        </button>
-                      </span>
-                    </div>
-                    {% if form.errors contains 'email' %}
-                      <span id="{{ formId }}-email-error" class="input-error-message">
-                        <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                        {% include 'icon-error' %}
-                        <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
-                      </span>
-                    {% endif %}
-                  {% endform %}
-                </div>
+        {% comment %} 配送料の内容は snippets に格納 {% endcomment %}
+        {% render 'shipping-information', document_area_flow: 'footer' %}
 
-              {%- when 'text' -%}
-                {%- if block.settings.text != blank -%}
-                  <div class="site-footer__rte
-                              {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
-                      {{ block.settings.text }}
-                  </div>
-                {%- endif -%}
-
-              {%- when 'link_list' -%}
-                {%- assign footer_linklist = block.settings.menu -%}
-                  <ul class="site-footer__linklist
-                            {% if inline_list %}list--inline{% endif %}">
-                    {%- for link in linklists[footer_linklist].links -%}
-                      <li class="site-footer__linklist-item">
-                        <a href="{{ link.url }}"
-                          {% if link.current %} aria-current="page"{% endif %}
-                        >
-                          {{ link.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-
-            {%- endcase -%}
-
-          </div>
+      </div>
+      <div class="footer-guide--column">
+        <h3 class="heading-footer-guide01">キャンセル</h3>
+        <p class="text-footer-guide">キャンセルを希望される場合は、ご購入から24時間以内にメール<a href="mailto:admin@yamanomiyakono-yaoyasan.shop">admin@yamanomiyakono-yaoyasan.shop</a>へご連絡をお願いします。<br>野菜の収穫手配の都合上、ご購入から24時間を過ぎてのキャンセル、変更は受付できません。<br>やむを得ずご購入から24時間を過ぎてキャンセルをされる場合、もしくは受け取り拒否をされた場合はキャンセル料100％（商品代+発送後の場合は送料）を頂戴しますのでご了承ください。</p>
+        <h3 class="heading-footer-guide01">返品</h3>
+        <p class="text-footer-guide">原則としてお客様のご都合による返品はご遠慮いただいております。<br>天災や異常気象、交通事情による遅延の場合も返品や再送はいたしかねます。<br>万が一ご注文と違う商品が届いた場合は、商品代金および送料は弊社が負担いたします。</p>
+        <h3 class="heading-footer-guide01">お問い合わせ先</h3>
+        <div class="define-list-footer-guide">
+          <dl>
+            <dt>販売事業社名</dt>
+            <dd>株式会社 肥後やまと</dd>
+          </dl>
+          <dl>
+            <dt>販売責任者</dt>
+            <dd>原田幸二</dd>
+          </dl>
+          <dl>
+            <dt>所在地</dt>
+            <dd>〒861-3784 熊本県上益城郡山都町川野362</dd>
+          </dl>
+          <dl>
+            <dt>TEL </dt>
+            <dd><a href="tel:0967-72-0565">0967-72-0565</a></dd>
+          </dl>
+          <dl>
+            <dt>MAIL</dt>
+            <dd><a href="mailto:higo-yamato@poppy.ocn.ne.jp">higo-yamato@poppy.ocn.ne.jp</a></dd>
+          </dl>
         </div>
-      {%- endfor -%}
+      </div>
     </div>
   </div>
+</aside>
 
-  <hr class="site-footer__hr">
+<div data-section-id="{{ section.id }}" class="page-width">
+  <div class="vegitable-carousel">
+    <p><img src="{{ 'carousel_00001.jpg' | asset_url }}"></p>
+    <p><img src="{{ 'carousel_00002.jpg' | asset_url }}"></p>
+    <p><img src="{{ 'carousel_00003.jpg' | asset_url }}"></p>
+    <p><img src="{{ 'carousel_00004.jpg' | asset_url }}"></p>
+    <p><img src="{{ 'carousel_00005.jpg' | asset_url }}"></p>
+  </div>
+</div>
+
+<footer class="site-footer critical-hidden" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
+  <div class="site-footer__content">
+
+    <h2 class="site-footer__logo">
+      <a href="#pagetop">
+        {% if section.settings.logo %}
+          {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
+          <span class="site-footer__logo-img">
+            <img class="lazyload js"
+                  src="{{ section.settings.logo | img_url: '300x300' }}"
+                  data-src="{{ img_url }}"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
+                  data-sizes="auto"
+                  alt="{{ logo_alt | escape }}">
+            <noscript>
+              <img src="{{ section.settings.logo | img_url }}"
+                    alt="{{ section.settings.logo.alt | default: shop.name }}">
+            </noscript>
+          </span>
+        {% else %}
+          <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
+        {% endif %}
+      </a>
+    </h2>
+
+    {%- for block in section.blocks -%}
+      <div class="site-footer__item
+                  {% if section.blocks.size == 1 %} site-footer__item--center{% endif %}
+                  {{ footer_item }}
+                  {% if block.type == 'newsletter' and section.blocks.size == 3 %}site-footer-newsletter__one-half{% endif %}"
+            {{ block.shopify_attributes }}>
+        <div class="site-footer__item-inner site-footer__item-inner--{{ block.type }}">
+
+          {%- if block.settings.title -%}
+            {%- if block.settings.title != blank -%}
+              <p class="h4">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- case block.type -%}
+            {%- when 'newsletter' -%}
+              <div class="site-footer__newsletter
+                        {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+                {%- assign formId = 'ContactFooter' -%}
+                {% form 'customer', id: formId, novalidate: 'novalidate' %}
+                  {%- if form.posted_successfully? -%}
+                    <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                      {{ 'general.newsletter_form.confirmation' | t }}
+                    </p>
+                  {%- endif -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+                    <input type="email"
+                      name="contact[email]"
+                      id="{{ formId }}-email"
+                      class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %}"
+                      value="{{ form.email }}"
+                      placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      aria-required="true"
+                      required
+                      autocorrect="off"
+                      autocapitalize="off"
+                      {% if form.errors %}
+                        aria-invalid="true"
+                        aria-describedby="{{ formId }}-email-error"
+                        data-form-status
+                      {% endif %}>
+                    <span class="input-group__btn">
+                      <button type="submit" class="btn newsletter__submit" name="commit" >
+                        <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                      </button>
+                    </span>
+                  </div>
+                  {% if form.errors contains 'email' %}
+                    <span id="{{ formId }}-email-error" class="input-error-message">
+                      <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                      {% include 'icon-error' %}
+                      <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                    </span>
+                  {% endif %}
+                {% endform %}
+              </div>
+
+            {%- when 'text' -%}
+              {%- if block.settings.text != blank -%}
+                <div class="site-footer__rte
+                    {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+                    {{ block.settings.text }}
+                </div>
+              {%- endif -%}
+
+            {%- when 'link_list' -%}
+              {%- assign footer_linklist = block.settings.menu -%}
+                <ul class="site-footer__linklist{% if inline_list %} list--inline{% endif %}">
+                  {%- for link in linklists[footer_linklist].links -%}
+                    <li class="site-footer__linklist-item">
+                      <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>
+                        <span>{{ link.title | escape }}</span>
+                        {% render 'icon-yamato-arrow-white' %}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+
+          {%- endcase -%}
+
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
 
   {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
 
-  <div class="page-width">
-    <div class="grid grid--no-gutters small--text-center grid--footer-float-right">
-      {%- if show_selectors -%}
-        <div class="grid__item one-half small--one-whole">
-          {%- form 'localization', class: 'selectors-form', data-disclosure-form: '' -%}
-            {%- if locale_selector -%}
-              <div class="selectors-form__item">
-                <h2 class="visually-hidden" id="lang-heading">
-                  {{ 'general.language.dropdown_label' | t }}
-                </h2>
-
-                <div class="disclosure" data-disclosure-locale>
-                  <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-disclosure-toggle>
-                    {{ form.current_locale.endonym_name }}
-                  </button>
-                  <ul id="lang-list" class="disclosure-list" data-disclosure-list>
-                    {% for locale in form.available_locales %}
-                      <li class="disclosure-list__item {% if locale.iso_code == form.current_locale.iso_code %}disclosure-list__item--current{% endif %}">
-                        <a class="disclosure-list__option" href="#" lang="{{ locale.iso_code }}" {% if locale.iso_code == form.current_locale.iso_code %}aria-current="true"{% endif %} data-value="{{ locale.iso_code }}" data-disclosure-option>
-                          {{ locale.endonym_name }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                  <input type="hidden" name="locale_code" id="LocaleSelector" value="{{ form.current_locale.iso_code }}" data-disclosure-input/>
-                </div>
-              </div>
-            {%- endif -%}
-
-            {%- if currency_selector -%}
-              <div class="selectors-form__item">
-                <h2 class="visually-hidden" id="currency-heading">
-                  {{ 'general.currency.dropdown_label' | t }}
-                </h2>
-
-                <div class="disclosure" data-disclosure-currency>
-                  <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="currency-list" aria-describedby="currency-heading" data-disclosure-toggle>
-                    {{ form.current_currency.iso_code }} {%- if form.current_currency.symbol -%}{{ form.current_currency.symbol }}{%- endif -%}
-                  </button>
-                  <ul id="currency-list" class="disclosure-list" data-disclosure-list>
-                    {% for currency in form.available_currencies %}
-                      <li class="disclosure-list__item {% if currency.iso_code == form.current_currency.iso_code %}disclosure-list__item--current{% endif %}">
-                        <a class="disclosure-list__option" href="#" {% if currency.iso_code == form.current_currency.iso_code %}aria-current="true"{% endif %} data-value="{{ currency.iso_code }}" data-disclosure-option>
-                          {{ currency.iso_code }} {%- if currency.symbol -%}{{ currency.symbol }}{%- endif -%}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                  <input type="hidden" name="currency_code" id="CurrencySelector" value="{{ form.current_currency.iso_code }}" data-disclosure-input/>
-                </div>
-              </div>
-            {%- endif -%}
-          {%- endform -%}
-        </div>
-      {%- else -%}
-        <div class="grid__item small--hide {{ payment_width_class }} {% if show_payment_icons %}site-footer-item-center-vertically{% endif %}">{{ payment_icon_markup }}</div>
-      {%- endif -%}
-
-      <div class="grid__item {% if show_selectors or show_payment_icons %}one-half{% endif %} small--one-whole site-footer-item-tall">
-        {%- if social_icons -%}
-          <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
-            {%- for social in socials -%}
-              {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
-              {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
-              {%- if settings[social_link] != blank -%}
-                <li class="social-icons__item">
-                  <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
-                    {%- include icon_link -%}
-                    <span class="icon__fallback-text">{{ social }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-
-            {%- if request.page_type == 'blog' or request.page_type == 'article' -%}
-              <li>
-                <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
-                  {% include 'icon-rss' %}
-                  <span class="icon__fallback-text">RSS</span>
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
-        {%- else -%}
-          <div class="small--hide site-footer-item-align-right {% if show_selectors or show_payment_icons %}site-footer-item-center-vertically{% endif %}">
-            <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-            <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
-          </div>
-        {%- endif -%}
-      </div>
-
-      {%- if show_selectors -%}
-        <div class="grid__item small--hide {{ payment_width_class }}">{{ payment_icon_markup }}</div>
-      {%- endif -%}
-
-      <div class="grid__item medium-up--hide {{ payment_width_class }} small--one-whole">{{ payment_icon_markup }}</div>
-
-      {%- if social_icons and show_selectors -%}
-        <div class="grid__item small--hide site-footer-item-align-right {% if show_payment_icons %}one-half{% endif %}">
-          <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-          <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
-        </div>
-      {%- endif -%}
-
-      <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
-        <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-        <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
-      </div>
-    </div>
-  </div>
+  <div class="site-footer__copyright"><small class="site-footer__copyright-content">Copyright ©YAMANOMIYAKONO YAOYASAN All Rights Reserved.</small></div>
 </footer>
-
-
 
 {% schema %}
 {
@@ -374,6 +407,33 @@
   },
   "max_blocks": 4,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": {
+        "cs": "Obrázek loga",
+        "da": "Logobillede",
+        "de": "Logo-Foto",
+        "en": "Logo image",
+        "es": "Logo",
+        "fi": "Logokuva",
+        "fr": "Image du logo",
+        "it": "Immagine del logo",
+        "ja": "ロゴ画像",
+        "ko": "로고 이미지",
+        "nb": "Logobilde",
+        "nl": "Afbeelding van logo",
+        "pl": "Obraz logo",
+        "pt-BR": "Imagem do logo",
+        "pt-PT": "Imagem do logótipo",
+        "sv": "Logobild",
+        "th": "รูปภาพโลโก้",
+        "tr": "Logo görseli",
+        "vi": "Hình ảnh logo",
+        "zh-CN": "logo 图片",
+        "zh-TW": "標誌圖片"
+      }
+    },
     {
       "type": "header",
       "content": {

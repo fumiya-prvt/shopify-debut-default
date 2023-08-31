@@ -1,11 +1,124 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Debut",
-    "theme_author": "Shopify",
-    "theme_version": "17.11.0",
+    "theme_name": "Yamato-Yaoya(Debut)",
+    "theme_author": "MARUKU(Shopify)",
+    "theme_version": "1.0.0",
     "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
     "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Delete Me",
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "ja": "アカウント削除後のリダイレクトURL",
+          "en": "After account Deletion Redirection URL",
+          "es": "URL de Redirección después de borrar cliente",
+          "fr": "Après la suppression du compte URL de redirection",
+          "it": "Dopo l'eliminazione dell'account URL di reindirizzamento"
+        }
+      },
+      {
+        "type": "url",
+        "id": "redirection_url",
+        "default": "\/",
+        "label": {
+          "ja": "リダイレクトのURL",
+          "en": "Redirection URL",
+          "es": "URL de redirección",
+          "fr": "URL de redirection",
+          "it": "URL di reindirizzamento"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "ja": "エラーメッセージ",
+          "en": "Error Messages",
+          "es": "Mensajes de error",
+          "fr": "Messages d'erreur",
+          "it": "Messaggio di errore"
+        }
+      },
+      {
+        "type": "text",
+        "id": "customer_delete_confirmation",
+        "label": {
+          "ja": "確認メッセージ",
+          "en": "Confirmation Message",
+          "es": "Mensaje de Confirmación",
+          "fr": "Message de confirmation",
+          "it": "Messaggio di conferma"
+        },
+        "info": {
+          "ja": "顧客にアカウントを削除したいかどうか確認するメッセージとなります。ご設定ください。",
+          "en": "This error message is to confirm the customer want's to delete his\/her account.",
+          "es": "Este mensaje de error es para confirmar que el cliente quiere eliminar su cuenta.",
+          "fr": "Ce message d'erreur est de confirmer que le client souhaite supprimer son compte.",
+          "it": "Questo messaggio di errore serve a confermare che il cliente desidera eliminare il proprio account."
+        },
+        "default": "退会してよろしいですか？"
+      },
+      {
+        "type": "text",
+        "id": "customer_deleted_success",
+        "label": {
+          "ja": "顧客が削除されました（成功）",
+          "en": "Customer Deleted (Success)",
+          "es": "Cliente Eliminado (Éxitoso)",
+          "fr": "Client supprimé (succès)",
+          "it": "Cliente eliminato (operazione riuscita)"
+        },
+        "info": {
+          "ja": "顧客アカウントが削除されたことを確認するメッセージとなります。ご設定ください。",
+          "en": "This error message is to confirm the customer's account has been deleted.",
+          "es": "Este mensaje de error es para confirmar que la cuenta del cliente fué eliminada",
+          "fr": "Ce message d'erreur confirme que le compte du client a été supprimé.",
+          "it": "Questo messaggio di errore serve a confermare che l'account del cliente è stato eliminato."
+        },
+        "default": "退会が完了しました!"
+      },
+      {
+        "type": "text",
+        "id": "customer_delete_global_error",
+        "label": {
+          "ja": "顧客は削除されていません（失敗）",
+          "en": "Customer Delete (Failed)",
+          "es": "Eliminar Cliente (Error)",
+          "fr": "Suppression du client (échec)",
+          "it": "Eliminazione cliente (non riuscita)"
+        },
+        "info": {
+          "ja": "顧客アカウントの削除中にエラーが発生したことをお知らせするメッセージとなります。ご設定ください。",
+          "en": "This error message will show up when there is an unknown error deleting the account.",
+          "es": "Este mensaje de error aparecerá cuando hay un error eliminando la cuenta.",
+          "fr": "Ce message d'erreur s'affiche en cas d'erreur inconnue lors de la suppression du compte.",
+          "it": "Questo messaggio di errore verrà visualizzato quando si verifica un errore sconosciuto durante l'eliminazione dell'account."
+        },
+        "default": "問題が起きたため、カスタマーサポートへご連絡ください。"
+      },
+      {
+        "type": "text",
+        "id": "customer_subscribed_error",
+        "label": {
+          "ja": "顧客は削除されていません（失敗、サブスクライブ中の顧客）",
+          "en": "Customer Delete (Failed, customer subscribed)",
+          "es": "Eliminación de cliente (Error, cliente suscrito)",
+          "fr": "Suppression du client (échec, client abonné)",
+          "it": "Eliminazione cliente (non riuscita, cliente iscritto)"
+        },
+        "info": {
+          "ja": "お客様がサブスクリプションに登録されている場合、こちらのエラーメッセージが表示されます。",
+          "en": "This error message will show up when the customer has an active subscription",
+          "es": "Este mensaje de error aparecerá cuando el cliente tiene una suscripcioón activa.",
+          "fr": "Ce message d'erreur s'affiche lorsque le client dispose d'un abonnement actif",
+          "it": "Questo messaggio di errore verrà visualizzato quando il cliente ha un abbonamento attivo"
+        },
+        "default": "お客様のアカウントは現在退会できません。ご不明点などございましたら、お問い合わせください。"
+      }
+    ]
   },
   {
     "name": {
@@ -900,7 +1013,7 @@
           "nb": "Vis selger",
           "nl": "Leverancier weergeven",
           "pl": "Pokaż dostawcę",
-          "pt-BR": "Exibir fabricante",
+          "pt-BR": "Exibir fornecedor",
           "pt-PT": "Mostrar fornecedor",
           "sv": "Visa säljare",
           "th": "แสดงผู้ขาย",

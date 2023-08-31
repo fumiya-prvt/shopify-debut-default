@@ -1,0 +1,165 @@
+/* product-list sp */
+.yamato-yaoya .heading-text {
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+p.product-list-top {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 17px;
+    color: #5d5858;
+    font-weight: 700;
+}
+
+.yamato-yaoya .product-list-btn {
+  margin-bottom: 24px;
+}
+.yamato-yaoya .product-list-btn .product-list-wrapper {
+  text-align: left;
+}
+.yamato-yaoya .product-list-btn .product-list-link {
+  border-bottom: 1px solid rgba(0, 0, 0, .5);;
+  padding-bottom: 3px;
+  font-size: 13px;
+  color: #000;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .product-list-content {
+  position: relative;
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+.yamato-yaoya .product-list-img {
+  filter: brightness(70%);
+  width: 100%;
+  height: auto;
+}
+.yamato-yaoya .product-list-img img {
+  width: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+.yamato-yaoya .product-list-text {
+  color: #fff;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1;
+}
+.yamato-yaoya .product-list-title {
+  font-size: 20px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  font-family: 'Noto Serif JP', serif;
+}
+.yamato-yaoya .product-list-label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.yamato-yaoya .product-list-price {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.yamato-yaoya .product-list-content-btn {
+  display: inline-block;
+  padding: 4px 16px;
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+/* product-list sp ---end--- */
+
+/* product-list tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .heading-text {
+    font-size: 14px;
+  }
+  .yamato-yaoya .product-list-btn .product-list-link {
+    font-size: 14px;
+  }
+  .yamato-yaoya .product-list-content {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .yamato-yaoya .product-list-text {
+    bottom: 10%;
+    left: 8%;
+  }
+  .yamato-yaoya .product-list-title {
+    font-size: 24px;
+  }
+  .yamato-yaoya .product-list-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .yamato-yaoya .product-list-price {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .yamato-yaoya .product-list-content-btn {
+    font-size: 14px;
+  }
+}
+/* product-list sp ---end--- */
+
+/* product-list pc */
+@media (min-width: 750px) {
+  .yamato-yaoya .heading-text {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .yamato-yaoya .product-list-btn {
+    margin-bottom: 0;
+  }
+  .yamato-yaoya .product-list-btn .product-list-link {
+    font-size: 16px;
+  }
+  .yamato-yaoya .flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+  .yamato-yaoya .product-list-content {
+    margin: 0 auto;
+    height: auto;
+  }
+  .yamato-yaoya .product-list-img {
+    overflow: hidden;
+  }
+  .yamato-yaoya .flex-content-one {
+    width: 40%;
+  }
+  .yamato-yaoya .flex-content-two {
+    width: 60%;
+  }
+  .yamato-yaoya .flex-content-three {
+    width: 50.07%;
+  }
+  .yamato-yaoya .flex-content-four {
+    width: 50%;
+    width: calc(50% + .7px);
+  }
+  .yamato-yaoya .product-list-title {
+    font-size: 24px;
+  }
+  .yamato-yaoya .product-list-label {
+    font-size: 16px;
+  }
+  .yamato-yaoya .product-list-price {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  .yamato-yaoya .product-list-content-btn {
+    padding: 4px 20px;
+    font-size: 14px;
+  }
+}
+/* product-list pc ---end--- */

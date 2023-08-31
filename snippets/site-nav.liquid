@@ -7,10 +7,11 @@
     Usage:
     {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
 {% endcomment %}
-<ul class="site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
+
+<h2 class="heading-a01">{{ linklists[linklist].title }}</h2>
+<ul class="site-nav{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="{% if nav_type == 'main' %}SiteNav{% else %}SiteNavSub{% endif %}">
   {% for link in linklists[linklist].links %}
     {%- assign child_list_handle = link.title | handleize -%}
-
     {% comment %}
       Check if third-level nav exists on each parent link.
     {% endcomment %}
@@ -20,6 +21,16 @@
         {%- assign three_level_nav = true -%}
       {% endif %}
     {% endif %}
+
+    {%- assign collect_collection = '' -%}
+    {%- for item in collections -%}
+      {%- if item.title == link.title -%}
+        {%- assign collect_collection = item.handle -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if collect_collection == '' -%}
+      {%- assign collect_collection = 'product_list' -%}
+    {%- endif -%}
 
     {% if link.links != blank %}
       <li class="site-nav--has-dropdown{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
@@ -79,14 +90,18 @@
         </div>
       </li>
     {% else %}
-      <li {% if link.active %} class="site-nav--active"{% endif %}>
-        <a href="{{ link.url }}"
-          class="site-nav__link site-nav__link--main{% if link.active %} site-nav__link--active{% endif %}"
-          {% if link.current %} aria-current="page"{% endif %}
-        >
-          <span class="site-nav__label">{{ link.title | escape }}</span>
-        </a>
-      </li>
+      {%- if collections[collect_collection].all_products_count > 0 -%}
+        <li {% if link.active %} class="site-nav--active"{% endif %}>
+          <a href="{{ link.url }}"
+            class="site-nav__link site-nav__link--main{% if link.active %} site-nav__link--active{% endif %}"
+            {% if link.current %} aria-current="page"{% endif %}
+          >
+            {%- assign this_icon = collect_collection | prepend: 'icon-side-' -%}
+            <span class="site-nav__icon">{% include this_icon %}</span>
+            <span class="site-nav__label">{{ link.title | escape }}{% render 'icon-yamato-arrow' %}</span>
+          </a>
+        </li>        
+      {%- endif -%}
     {% endif %}
   {% endfor %}
 </ul>

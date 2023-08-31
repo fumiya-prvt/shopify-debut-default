@@ -1,0 +1,207 @@
+/* header sp */
+.ui-controller {
+  display: none;
+}
+.yamato-yaoya .site-header {
+  margin: 0;
+  padding: 0;
+}
+.yamato-yaoya .site-header__left {
+  position: fixed;
+  top: 0;
+  left: 4%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.yamato-yaoya .site-header__right {
+  position: fixed;
+  top: 0;
+  right: 4%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  column-gap: 16px;
+}
+.yamato-yaoya .fv-anime2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s all ease-in-out;
+}
+.yamato-yaoya .fv-anime2-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.yamato-yaoya .site-logo {
+  margin: 0;
+  padding: 0;
+  width: 55px;
+  height: auto;
+}
+.yamato-yaoya .site-logo img {
+  width: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+.yamato-yaoya .site-header .header-nav {
+  display: none;
+}
+.yamato-yaoya .site-header .yamato-global-header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100vh;
+  border-top: 1px solid #e2e2e2;
+  background-color: #fff;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.3s ease-out 0s;
+}
+.yamato-yaoya .site-header__right .global-nav__label {
+  font-size: 13px;
+  color: #231C1C;
+}
+.yamato-yaoya .site-header__right .global-nav__label ins {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.yamato-yaoya .site-header__right .global-nav__label ins::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: -3px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 50%;
+  padding-top: 100%;
+  background-color: #000;
+}
+.yamato-yaoya .site-header .yamato-global-header__container {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+.yamato-yaoya .site-header .global-nav-drawer-controller {
+  display: block;
+  width: 24px;
+  margin: 0;
+}
+.yamato-yaoya .site-header .global-nav-drawer-controller__content {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 18px;
+  margin: 0 auto;
+}
+.yamato-yaoya .site-header .global-nav-drawer-controller__content::before,
+.yamato-yaoya .site-header .global-nav-drawer-controller__content::after {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  content: '';
+  transition: transform 0.3s ease-out 0s;
+}
+.yamato-yaoya .site-header .global-nav-drawer-controller__content::before {
+  top: 0;
+}
+.yamato-yaoya .site-header .global-nav-drawer-controller__content::after {
+  bottom: 0;
+}
+.yamato-yaoya .site-header .global-nav-drawer-controller__content > span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  margin: auto;
+  background-color: #000;
+  opacity: 1;
+  transition: opacity 0.3s ease-out 0s;
+}
+.yamato-yaoya #global-nav-flag:checked + .site-header .yamato-global-header {
+  width: 100%;
+  max-width: 350px;
+  opacity: 1;
+}
+.yamato-yaoya #global-nav-flag:checked + .site-header .yamato-global-header__container {
+  width: 100%;
+}
+.yamato-yaoya #global-nav-flag:checked + .site-header .global-nav-drawer-controller__content::before {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.yamato-yaoya #global-nav-flag:checked + .site-header .global-nav-drawer-controller__content::after {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+.yamato-yaoya #global-nav-flag:checked + .site-header .global-nav-drawer-controller__content > span {
+  opacity: 0;
+}
+/* header sp --- end --- */
+
+/* header tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .site-header__right {
+    column-gap: 24px;
+  }
+  .yamato-yaoya .site-logo {
+    width: 65px;
+  }
+  .yamato-yaoya .site-header__right .global-nav__label {
+    font-size: 16px;
+  }
+  .yamato-yaoya .site-header__right .global-nav__label ins {
+    width: 26px;
+    font-size: 16px;
+  }
+  .yamato-yaoya .site-header__right .global-nav__label ins::after {
+    top: -1px;
+  }
+  .yamato-yaoya #global-nav-flag:checked + .site-header .yamato-global-header {
+    width: 350px;
+  }
+}
+/* header tab --- end --- */
+
+/* header pc */
+@media (min-width: 835px) {
+  .yamato-yaoya .site-header__left {
+    flex-direction: column;
+    row-gap: 32px;
+    align-items: flex-start;
+  }
+  .yamato-yaoya .site-header__right {
+    column-gap: 32px;
+  }
+  .yamato-yaoya .site-logo {
+    width: 80px;
+    padding: 24px 0 0;
+  }
+  .yamato-yaoya .site-header .header-nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .yamato-yaoya .site-header__right .global-nav__label ins::after {
+    top: 1px;
+  }
+}
+/* header pc --- end --- */

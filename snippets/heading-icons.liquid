@@ -1,0 +1,16 @@
+{%- case heading_icon -%}
+  {%- when 'organic_vegetable_set' -%}
+    {% render 'icon-heading-organic_vegetable_set' %}
+
+  {%- when 'organic_vegetables' -%}
+    {% render 'icon-heading-organic_vegetables' %}
+
+  {%- when 'popular' -%}
+    {% render 'icon-heading-popular' %}
+
+  {%- when 'seasonal_vegetable_set' -%}
+    {% render 'icon-heading-seasonal_vegetable_set' %}
+
+  {%- else -%}
+    {% render 'icon-heading-organic_vegetable_set' %}
+{%- endcase -%}

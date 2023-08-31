@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="{{ 'yamato-fv-video.css' | asset_url }}" type="text/css">
+
+<div class="fv-video fade">
+  <video autoplay loop muted playsinline preload="auto" class="video-sp" src="{{ 'fv-video-sp.mp4' | asset_url }}"></video>
+  <video autoplay loop muted playsinline preload="auto" class="video-pc" src="{{ 'fv-video-pc.mp4' | asset_url }}"></video>
+
+  <div class="scroll fv-anime2">
+    <span class="scroll__text alphabet">scroll</span>
+    <span class="scroll__icon">{% render 'icon-scroll' %}</span>
+  </div>
+</div>

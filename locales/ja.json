@@ -158,7 +158,7 @@
   "cart": {
     "general": {
       "title": "ショッピングカート",
-      "note": "注文にメモを追加する",
+      "note": "ご要望があればご記入下さい（お届け日や野菜の指定など）",
       "removed_item_html": "カートから <span class=\"cart__removed-product-details\">({{ quantity }}) 個の{{ link }}<\/span>が消去されました。",
       "remove": "削除",
       "subtotal": "小計",
@@ -418,6 +418,26 @@
       "pick_up_currently_unavailable": "受取は現在できません",
       "pick_up_available_at_html": "<strong>{{ location_name }}<\/strong>での受取が可能です",
       "pick_up_unavailable_at_html": "<strong>{{ location_name }}<\/strong>での受取は現在できません"
+    }
+  },
+  "shopify": {
+    "collections": {
+      "sorting": {
+        "best_selling": "人気順",
+        "az": "あいうえお順",
+        "za": "あいうえお順（逆順）"
+      }
+    },
+    "checkout": {
+      "payment": {
+        "purchase_options_agreement_label": "この商品は定期的にお届けする商品です。解約のご連絡があるまで続けてお届けいたします。"
+      },
+      "field_errors": {
+        "purchase_options_agreement_blank": "定期購入の条件に同意してください"
+      },
+      "shop_policies": {
+        "subscription_policy": "サブスクリプションのキャンセルポリシー"
+      }
     }
   }
 }

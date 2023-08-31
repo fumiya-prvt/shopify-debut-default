@@ -1,6 +1,17 @@
-<div class="page-width">
+<div class="page-width padding-top">
   <div class="section-header text-center">
-    <h1>{{ 'customer.account.title' | t }}</h1>
+    <h1>マイページ</h1>
+
+    {% comment %} {% if content_for_header contains 'mikawaya' %}
+      {% include 'mikawaya-to-customer-portal-button' %}
+    {% endif %} {% endcomment %}
+
+    <div style="margin-bottom: 20px">
+      <a class="ui-button btn btn--subdued btn--size-small" href="/apps/floor-s">
+      サブスクリプションを管理
+      </a>
+    </div>
+
     {{ 'layout.customer.log_out' | t | customer_logout_link }}
   </div>
 

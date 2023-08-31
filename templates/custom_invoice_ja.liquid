@@ -1,0 +1,118 @@
+<p style="float: right; text-align: right; margin: 0;">
+  {{ "now" | date: "%Y年%m月%d日" }}<br />
+  注文番号 {{ order_name }}
+</p>
+
+<div style="float: left; margin: 0 0 1.5em 0;" >
+  <strong style="font-size: 2em;">{{ shop_name }}</strong><br /><br />
+  {{ shop.address }}<br/>
+  {{ shop.city }} {{ shop.province_code }} {{ shop.zip | upcase }}<br/>
+  {{ shop.country }}
+</div>
+
+<hr />
+
+{% comment %} <h3 style="margin: 0 0 1em 0;">品目</h3> {% endcomment %}
+
+<table class="table-tabular" style="margin: 0 0 1.5em 0;">
+  <thead>
+    <tr>
+      <th>品目</th>
+      <th>数量</th>
+      {% if show_line_item_taxes %}
+      <th>税</th>
+      {% endif %}
+      <th>価格</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for line_item in line_items %}
+      <tr>
+        <td><b>{{ line_item.title }}</b></td>
+        <td>{{ line_item.quantity }} x</td>
+        {% if show_line_item_taxes %}
+        <td>
+          {% for tax_line in line_item.tax_lines %}
+            {{ tax_line.price | money }} {{ tax_line.title }}<br/>
+          {% endfor %}
+        </td>
+        {% endif %}
+        <td>
+          {% if line_item.original_price != line_item.price %}
+            <s>{{ line_item.original_price | money }}</s>
+          {% endif %}
+          {{ line_item.price | money }}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if transactions.size > 1 %}
+  <h3 style="margin: 0 0 1em 0;">送料</h3>
+  <table class="table-tabular" style="margin: 0 0 1.5em 0;">
+    <thead>
+      <tr>
+        <th>支払い方法</th>
+        <th>金額</th>
+        <th>配送種別</th>
+        <th>配送状況</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transaction in transactions %}
+        <tr>
+          <td>{{ transaction.gateway | payment_method }}</td>
+          <td>{{ transaction.amount | money }}</td>
+          <td>{{ transaction.kind }}</td>
+          <td>{{ transaction.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+
+{% comment %} <h3 style="margin: 0 0 1em 0;">Payment Details</h3> {% endcomment %}
+
+<table class="table-tabular" style="margin: 0 0 1.5em 0;">
+  <tr>
+    <td>小計:</td>
+    <td>{{ subtotal_price | money }}</td>
+  </tr>
+  {% for discount in discounts %}
+  <tr>
+    <td>値引き "{{ discount.code }}"</td>
+    <td>{{ discount.savings | money }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td>消費税:</td>
+    <td>{{ tax_price | money }}</td>
+  </tr>
+  {% if shipping_address %}
+    <tr>
+      <td>配送料:</td>
+      <td>{{ shipping_price | money }}</td>
+    </tr>
+  {% endif %}
+  <tr>
+    <td><strong>合計:</strong></td>
+    <td><strong>{{ total_price | money }}</strong></td>
+  </tr>
+</table>
+
+{% if note %}
+  <h3 style="margin: 0 0 1em 0;">備考</h3>
+  <p>{{ note }}</p>
+{% endif %}
+
+{% if shipping_address %}
+  <h3 style="margin: 0 0 1em 0;">お届け先</h3>
+
+  <div style="margin: 0 0 1em 0; padding: 1em; border: 1px solid black;">
+    <strong>{{ shipping_address.name }}</strong><br/>
+    {{ shipping_address | format_address }}
+  </div>
+{% endif %}
+
+<p>お問い合わせはこちらまで <u>{{ shop.email }}</u></p>

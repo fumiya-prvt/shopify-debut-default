@@ -3,7 +3,7 @@
   <div {% if cart.item_count == 0 %}class="hide" {% endif %}data-cart-wrapper>
     <div class="cart-header">
       <h1 class="cart-header__title">{{ 'cart.general.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
+      <a href="{{ routes.root_url }}collections/product_list/" class="text-link text-link--accent">
         {{ 'cart.general.continue_shopping' | t }}
       </a>
     </div>
@@ -28,6 +28,11 @@
                     <div class="list-view-item__title">
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title data-role="product-title">
                         {{ item.product.title }}
+
+{% if content_for_header contains 'mikawaya' %}
+  {% include 'mikawaya-cart-page-widget' %}
+{% endif %}
+
                       </a>
                     </div>
 
@@ -259,7 +264,7 @@
 
             <div class="cart-subtotal">
               <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}</span>
-              <span class="cart-subtotal__price" data-cart-subtotal>{{ cart.total_price | money_with_currency }}</span>
+              <span class="cart-subtotal__price" data-cart-subtotal>{{ cart.total_price | money }}</span>
             </div>
 
             {%- capture taxes_shipping_checkout -%}
@@ -274,6 +279,7 @@
               {%- endif -%}
             {%- endcapture -%}
             <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
+            {% render 'cart-deliverytime' %}
             <div class="cart__buttons-container">
               <div class="cart__submit-controls">
                 {%- unless section.settings.cart_ajax_enable -%}
@@ -313,7 +319,7 @@
     <div class="cookie-message">
       <p>{{ 'cart.general.cookies_required' | t }}</p>
     </div>
-    <a href="{{ routes.root_url }}" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+    <a href="{{ routes.root_url }}collections/product_list/" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
   </div>
 </div>
 

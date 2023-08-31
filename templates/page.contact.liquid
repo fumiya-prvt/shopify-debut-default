@@ -1,10 +1,25 @@
+<header class="collection-header">
+  {%- assign hero_img = 'contact_hero_2x.jpg' | asset_url -%}
+  <!-- {{ hero_img }} -->
+  <div class="collection-hero">
+    <div class="collection-hero__image" style="background-image: url({{ hero_img }});"></div>
+    <div class="collection-hero__title-wrapper">
+      <h1 class="collection-hero__title">
+          <span class="visually-hidden">お問い合わせ: </span>
+          お問い合わせ
+          <small>CONTACT US</small>
+      </h1>
+    </div>
+  </div>
+</header>
+
+<div class="page-width">
+  {% include 'topic-path' %}
+</div>
+
 <div class="page-width">
   <div class="grid">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-      <div class="section-header text-center">
-        <h1>{{ page.title }}</h1>
-      </div>
-
       {% if page.content.size > 0 %}
         <div class="rte">
           {{ page.content }}
@@ -18,12 +33,12 @@
 
           <div class="grid grid--half-gutters">
             <div class="grid__item medium-up--one-half">
-              <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
-              <input type="text" id="{{ formId }}-name" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              <label for="{{ formId }}-name">{{ 'contact.form.name' | t }} <span aria-hidden="true">*</span></label>
+              <input required type="text" id="{{ formId }}-name" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
             </div>
             <div class="grid__item medium-up--one-half">
               <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
-              <input
+              <input required
                 type="email"
                 id="{{ formId }}-email"
                 name="contact[email]"
@@ -47,11 +62,11 @@
             </div>
           </div>
 
-          <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
-          <input type="tel" id="{{ formId }}-phone" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+          {% comment %} <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+          <input type="tel" id="{{ formId }}-phone" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}"> {% endcomment %}
 
-          <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
-          <textarea rows="10" id="{{ formId }}-message" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          <label for="{{ formId }}-message">{{ 'contact.form.message' | t }} <span aria-hidden="true">*</span></label>
+          <textarea required rows="10" id="{{ formId }}-message" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
 
           <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
 

@@ -1,0 +1,133 @@
+<!-- Get: Template Name - {{ template.name }} -->
+<link rel="stylesheet" href="{{ 'yamato-global-nav.css' | asset_url }}" type="text/css">
+
+<nav class="global-nav">
+  <div class="site-header__right">
+    <a href="{{ routes.cart_url }}">
+      <span class="global-nav__label">{{ 'layout.cart.title' | t }} <ins class="cart-item-count">{{ cart.item_count }}</ins></span>
+    </a>
+
+    <label for="global-nav-flag" class="global-nav-drawer-controller">
+      <span class="global-nav-drawer-controller__content">
+        <span></span>
+      </span>
+    </label>
+    </div>
+
+  <div class="global-nav__top">
+    <ul class="global-nav__top-list">
+      {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+      {% if template.name != 'account' %}
+      <li>
+        <a href="{{ routes.account_url }}">
+          <span class="global-nav__icon">{% render 'icon-orange-account' %}</span>
+          <span class="global-nav__label">マイページ</span>
+        </a>
+      </li>
+      {% endif %}
+      <li>
+        <a href="{{ routes.account_logout_url }}">
+          <span class="global-nav__icon">{% render 'icon-signout' %}</span>
+          <span class="global-nav__label">ログアウト</span>
+        </a>
+      </li>
+      {% else %}
+      <li>
+        <a href="{{ routes.account_login_url }}">
+          <span class="global-nav__icon">{% render 'icon-signin' %}</span>
+          <span class="global-nav__label">ログイン</span>
+        </a>
+      </li>
+      {% endif %}
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="global-nav__middle">
+    <ul class="global-nav__middle-list">
+      <li>
+        <a href="{{ routes.root_url }}collections/product_list/">
+          <span class="global-nav__title alphabet">shopping</span>
+          <span class="global-nav__label">商品一覧</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/commitment#overview">
+          <span class="global-nav__title alphabet">about</span>
+          <span class="global-nav__label">山都町について</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/commitment/">
+          <span class="global-nav__title alphabet">stories</span>
+          <span class="global-nav__label">山都町の野菜について</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}blogs/recipe/">
+          <span class="global-nav__title alphabet">recipe</span>
+          <span class="global-nav__label">レシピ</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}blogs/producer/">
+          <span class="global-nav__title alphabet">human</span>
+          <span class="global-nav__label">生産者紹介</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}blogs/news/">
+          <span class="global-nav__title alphabet">news</span>
+          <span class="global-nav__label">ニュース</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}#guide" id="drawer-off">
+          <span class="global-nav__title alphabet">guide</span>
+          <span class="global-nav__label">お買い物ガイド</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="global-nav__middle-sns">
+      <li>
+        <a href="{{ "https://www.facebook.com/higoyamato/" }}" target="_blank">
+          <span class="global-nav__icon">{% render 'icon-facebook' %}</span>
+          <span class="global-nav__label alphabet">facebook</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ "https://www.instagram.com/yamanomiyakono_yaoyasan/" }}" target="_blank">
+          <span class="global-nav__icon">{% render 'icon-instagram' %}</span>
+          <span class="global-nav__label alphabet">instagram</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="global-nav__bottom">
+    <ul class="global-nav__bottom-list">
+      <li>
+        <a href="{{ routes.root_url }}pages/commitment#overview">
+          <span class="global-nav__label">事業社紹介</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/contact">
+          <span class="global-nav__label">お問い合わせ</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/specified_commercial_code">
+          <span class="global-nav__label">特定商取引法に基づく表記</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.root_url }}pages/privacy">
+          <span class="global-nav__label">プライバシー・ポリシー</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

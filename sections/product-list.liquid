@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="{{ 'yamato-product-list.css' | asset_url }}" type="text/css">
+
+<div class="page-width yamato-commitment">
+  <div class="flex">
+    <div class="flex-content-one fade">
+      <h2 class="heading">
+        <span class="heading-label">商品一覧</span>
+        {% comment %} <small>〜熊本県山都町とは？〜</small> {% endcomment %}
+      </h2>
+      <p class="heading-text">
+        山都町の自然のエネルギーで元気に育った、<br>
+        四季折々のお野菜のお届け一覧です。
+      </p>
+      <div class="product-list-btn">
+        <div class="product-list-wrapper">
+          <a href="{{ routes.root_url }}collections/product_list/" class="product-list-link link-btn">
+            <span>商品をもっと見る →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-list-content flex-content-two fade">
+      <div class="product-list-img">
+        <img class="hover" src="{{ 'product-image1.png' | asset_url }}" alt="様々な野菜が木製の箱に入っている" width="485" height="330" loading="lazy">
+      </div>
+      <div class="product-list-text">
+        <h2 class="product-list-title">
+          <span class="product-list-label">やまのみやこ</span>
+          <span>オーガニック野菜セット8種</span>
+        </h2>
+        <p class="product-list-price">¥ 2,600</p>
+        <a href="{{ routes.root_url }}collections/product_list/products/yamatoオーガニック家族セット-野菜8品" class="product-list-content-btn">
+          <span>詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="product-list-content flex-content-three fade">
+      <div class="product-list-img">
+        <img class="hover" src="{{ 'product-image2.png' | asset_url }}" alt="様々な野菜が木製の箱に入っている" width="485" height="330" loading="lazy">
+      </div>
+      <div class="product-list-text">
+        <h2 class="product-list-title">
+          <span class="product-list-label">やまのみやこ</span>
+          <span>オーガニック野菜セット12種</span>
+        </h2>
+        <p class="product-list-price">¥ 3,100</p>
+        <a href="{{ routes.root_url }}collections/product_list/products/yamatoオーガニック満腹セット-野菜12品" class="product-list-content-btn">
+          <span>詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="product-list-content flex-content-four fade">
+      <div class="product-list-img">
+        <img class="hover" src="{{ '0725.jpg' | asset_url }}" alt="様々な野菜が木製の箱に入っている" width="485" height="330" loading="lazy">
+      </div>
+      <div class="product-list-text">
+        <h2 class="product-list-title">
+          <span class="product-list-label">やまのみやこ</span>
+          <span><br>オーガニック学校給食セット</span>
+        </h2>
+        <p class="product-list-price">¥ 3,600</p>
+        <a href="{{ routes.root_url }}collections/product_list/products/yamatoオーガニック学校給食セット-有機米-野菜5品" class="product-list-content-btn">
+          <span>詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

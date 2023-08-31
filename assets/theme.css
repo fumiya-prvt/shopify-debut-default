@@ -1196,7 +1196,7 @@ h4,
 .h4 {
   font-size: calc(((var(--font-h4-desktop)) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
-    
+
     h4,
     .h4 {
       font-size: calc(((var(--font-h4-mobile)) / (var(--font-size-base))) * 1em); } }
@@ -1206,7 +1206,7 @@ h5,
 .h5 {
   font-size: calc(((var(--font-h5-desktop)) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
-    
+
     h5,
     .h5 {
       font-size: calc(((var(--font-h5-mobile)) / (var(--font-size-base))) * 1em); } }
@@ -1216,7 +1216,7 @@ h6,
 .h6 {
   font-size: calc(((var(--font-h6-desktop)) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
-    
+
     h6,
     .h6 {
       font-size: calc(((var(--font-h6-mobile)) / (var(--font-size-base))) * 1em); } }
@@ -1581,7 +1581,6 @@ td {
 tbody th,
 tfoot th {
   font-weight: normal; }
-
 /*============================================================================
   Responsive tables, defined with .responsive-table on table element.
 ==============================================================================*/
@@ -1796,7 +1795,7 @@ select,
   padding-left: 15px;
   padding-bottom: 8px; }
   @media only screen and (min-width: 750px) {
-    
+
     select,
     .disclosure__toggle {
       padding-top: 10px;
@@ -2000,7 +1999,7 @@ textarea {
 
 .input-group__btn {
   flex-grow: 1; }
-  
+
   .input-group__btn .btn,
   .input-group__btn .shopify-payment-button .shopify-payment-button__button--unbranded,
   .shopify-payment-button .input-group__btn .shopify-payment-button__button--unbranded {
@@ -3810,7 +3809,7 @@ hr {
   min-width: 1em;
   height: 1em; }
   .site-header__cart-count span {
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: calc(11em / 16);
     line-height: 1; }
 

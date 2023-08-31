@@ -1,0 +1,329 @@
+.yamato-yaoya .lp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.yamato-yaoya .yu-mincho {
+  font-family: "Yu Mincho", "YuMincho", serif;
+  color: #4d382f;
+  font-feature-settings: "palt";
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+.yamato-yaoya .lp .buy-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+  display: flex;
+  align-items: center;
+  column-gap: 2%;
+}
+.yamato-yaoya .lp .active {
+  bottom: 2%;
+  opacity: 1;
+  transition: all .5s ease-in-out;
+}
+.yamato-yaoya .lp .inner {
+  margin: 0 auto 20%;
+  width: 100%;
+  max-width: 800px;
+  background-color: #E4DCD1;
+}
+.yamato-yaoya .lp .wrapper {
+  background-color: #fff;
+  margin-bottom: 4%;
+}
+.yamato-yaoya .lp .padding {
+  padding: 4%;
+}
+
+@media (min-width: 600px) {
+  .yamato-yaoya .lp .buy-btn {
+    right: 4%;
+    width: 50%;
+    max-width: 300px;
+    flex-direction: column;
+    column-gap: 0;
+  }
+  .yamato-yaoya .lp .buy-btn a:first-child {
+    margin-bottom: 4%;
+  }
+  .yamato-yaoya .lp .active {
+    bottom: 4%;
+  }
+  .yamato-yaoya .lp .inner {
+    margin: 0 auto 80px;
+  }
+}
+
+/* feature SP */
+.yamato-yaoya .lp .feature {
+  background-image: url(./lp-feature-bg.png);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-color: #fff;
+}
+.yamato-yaoya .lp .feature .wrapper:last-child {
+  margin-bottom: 0;
+}
+.yamato-yaoya .lp .feature .feature-title {
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.yamato-yaoya .lp .feature .feature-title-number {
+  display: block;
+  font-size: min(6vw, 40px);
+  font-weight: lighter;
+  margin-bottom: 4px;
+}
+.yamato-yaoya .lp .feature .wrapper .feature-title-text {
+  font-size: min(10vw, 80px);
+  line-height: 1;
+}
+.yamato-yaoya .lp .feature .wrapper .small {
+  font-size: min(6.5vw, 48px);
+  display: block;
+}
+.yamato-yaoya .lp .feature .feature-text {
+  font-size: min(3vw, 23px);
+}
+.yamato-yaoya .lp .feature .feature-annotation {
+  font-size: min(2.5vw, 16px);
+  margin-bottom: 0;
+}
+/* feature SP --- end --- */
+
+/* review SP */
+.yamato-yaoya .lp .review {
+  background-color: #f6e18c;
+}
+.yamato-yaoya .lp .review .wrapper:last-child {
+  margin-bottom: 0;
+}
+.yamato-yaoya .lp .review-title {
+  text-align: center;
+  font-size: min(4vw, 24px);
+  margin-bottom: 4%;
+}
+.yamato-yaoya .lp .reviewer {
+  display: inline-block;
+  font-size: min(3vw, 18px);
+  margin-bottom: 8px;
+  border-bottom: 1px solid #4d382f;
+  line-height: 1.2;
+}
+.yamato-yaoya .lp .review-text {
+  font-size: min(2.3vw, 16px);
+}
+/* review SP --- end --- */
+
+/* note SP */
+.yamato-yaoya .lp .note {
+  margin-bottom: 0;
+  background-image: url(./teiki_20.png);
+  background-size: 100%;
+  background-repeat: repeat;
+  position: relative;
+  background-color: #fff;
+}
+.yamato-yaoya .lp .note img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.yamato-yaoya .lp .note-annotation,
+.yamato-yaoya .lp .note-annotation-schedule span,
+.yamato-yaoya .lp .note-annotation-penalty {
+  font-size: min(2.3vw, 16px);
+}
+.yamato-yaoya .lp .note-annotation:not(:last-child) {
+  margin-bottom: 4px;
+}
+.yamato-yaoya .lp .note-annotation-schedule {
+  margin-left: 24px;
+  width: 80%;
+  max-width: 230px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.yamato-yaoya .lp .note-annotation-schedule .schedule-before {
+  position: relative;
+  padding-left: 24px;
+}
+.yamato-yaoya .lp .note-annotation-schedule .schedule-before::before {
+  content: "⇒";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.yamato-yaoya .lp .note-annotation-penalty {
+  margin-left: 24px;
+}
+/* note SP --- end --- */
+
+/* note tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .lp .note-annotation-schedule {
+    width: 58%;
+    max-width: 300px;
+  }
+}
+@media (min-width: 600px) {
+  .yamato-yaoya .lp .note-annotation-schedule {
+    width: 54%;
+    max-width: 340px;
+  }
+}
+/* note tab --- end --- */
+
+
+/*new style*/
+.qqh2{
+  text-align: center;
+  font-family: serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+p.qqp01 span {
+  color: #ff7302;
+  font-size: 19px;
+  font-weight: bold;
+  font-family: serif;
+}
+
+p.qqp01 {
+  color: #ff7302;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: unset;
+  margin: 10px 0;
+}
+
+p.qqp02 {
+  box-sizing: border-box;
+  padding: 1.5%;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.qqdiv {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  p.qqp02 {
+    box-sizing: border-box;
+    padding: 1.5%;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.8;
+}
+  }
+
+  .mypage {
+    width: 900px;
+    margin: 0 auto;
+    display: block;
+}
+
+.mypage_image {
+    margin-bottom: 25%;
+}
+
+.mypage_image img {
+    float: left;
+    clear: both;
+    width: 62%;
+}
+
+.mypage_image p {
+    font-size: 20px;
+    font-family: serif;
+}
+
+.mypage h3 {
+    text-align: left;
+    font-family: serif;
+    font-size: 29px;
+}
+
+.mypage_text {
+    width: 435px;
+    display: inline-block;
+    margin: 6px;
+    margin-bottom: 25px;
+}
+
+.mypage_text h4 {
+    font-family: serif;
+    color: #6f6868;
+}
+
+.mypage_text p {
+    font-size: 16px;
+    font-family: serif;
+}
+
+h4.login_h4 a {
+    text-decoration: none;
+    color: #333;
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 1%;
+}
+
+h4.login_h4 {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+section.mypage_banner img {
+    width: 32%;
+    display: inline-block;
+}
+
+@media(max-width: 750px) {
+
+    .mypage {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .mypage_image {
+        margin-bottom: 17%;
+    }
+
+    .mypage_image img {
+        float: none;
+        clear: both;
+        width: 100%;
+    }
+
+    .mypage_image p {
+            font-size: 1.1rem;
+            background-color: #efc792;
+            box-sizing: border-box;
+            padding: 2%;
+    }
+
+    .mypage h3 {
+        text-align: center;
+        font-family: serif;
+        font-size: 1.5rem;
+    }
+}

@@ -37,6 +37,20 @@
     data-product-single-media-wrapper
     data-media-id="{{ section.id }}-{{ media.id }}"
     tabindex="-1">
+  {% if product.type == '山の都のオーガニック野菜セット' or product.type == 'オーガニック野菜' %}
+    <span class="icon-organic-jas"><img src="{{ 'icon-organic-jas.png' | asset_url }}" alt=""></span>
+  {% endif %}
+  {%- for tag in product.tags -%}
+    {%- if tag == 'オーガニック野菜（単品）' -%}
+      <span class="icon-organic-jas"><img src="{{ 'icon-organic-jas.png' | asset_url }}" alt=""></span>
+    {%- endif -%}
+  {%- endfor -%}
+  {%- for tag in product.tags -%}
+    {%- if tag == 'お米セット' -%}
+      <span class="icon-rice-set"><img src="{{ 'rice-set-icon_2x.jpg' | asset_url }}" alt=""></span>
+    {%- endif -%}
+  {%- endfor -%}
+
   {% case media.media_type %}
     {% when 'image' %}
       {% capture zoom_media_id %}ImageZoom-{{ section.id }}-{{ media.id }}{% endcapture %}

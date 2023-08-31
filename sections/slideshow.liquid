@@ -19,7 +19,7 @@
 {%- assign text_horizontal_alignment = text_alignments.first -%}
 {%- assign text_vertical_alignment = text_alignments.last | strip -%}
 
-<div data-section-id="{{ section.id }}" data-section-type="slideshow-section">
+<div data-section-id="{{ section.id }}" data-section-type="slideshow-section" data-device-for="desktop">
   {%- if section.blocks.size > 0 -%}
     <div id="SlideshowWrapper-{{ section.id }}" class="slideshow-wrapper" role="region" aria-label="slideshow" aria-describedby="slideshow-info" tabindex="-1" data-slider>
       <div class="slideshow slideshow--{{ section.settings.slideshow_height }}{% if display_controls %} slideshow--display-controls{% endif %}"
@@ -70,42 +70,40 @@
               </div>
             </noscript>
 
-            <div class="slideshow__text-wrap slideshow__text-wrap--desktop">
+            {% comment %} <div class="slideshow__text-wrap slideshow__text-wrap--desktop">
               <div class="slideshow__text-content slideshow__text-content--vertical-{{ text_vertical_alignment }} text-{{ text_horizontal_alignment }}">
-                <div class="page-width">
-                  {% unless block.settings.slide_title == blank and block.settings.subheading == blank %}
-                    <ul class="slideshow__text-content-list">
-                      {%- unless block.settings.slide_title == blank -%}
-                        <li>
-                          <h2 class="h1 mega-title slideshow__title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
-                            {{ block.settings.slide_title | escape }}
-                          </h2>
-                        </li>
-                      {%- endunless -%}
-                      {%- unless block.settings.subheading == blank -%}
-                        <li>
-                          <span class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
-                            {{ block.settings.subheading | escape }}
-                          </span>
-                        </li>
-                      {%- endunless -%}
-                    </ul>
-                  {% endunless %}
+                {% unless block.settings.slide_title == blank and block.settings.subheading == blank %}
+                  <ul class="slideshow__text-content-list">
+                    {%- unless block.settings.slide_title == blank -%}
+                      <li>
+                        <h2 class="h1 mega-title slideshow__title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
+                          {{ block.settings.slide_title | escape }}
+                        </h2>
+                      </li>
+                    {%- endunless -%}
+                    {%- unless block.settings.subheading == blank -%}
+                      <li>
+                        <span class="mega-subtitle slideshow__subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                          {{ block.settings.subheading | escape }}
+                        </span>
+                      </li>
+                    {%- endunless -%}
+                  </ul>
+                {% endunless %}
 
-                  {%- assign show_link_button = false -%}
-                  {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
-                    {%- assign show_link_button = true -%}
-                  {%- endif -%}
-                  {%- if show_link_button -%}
-                    <div class="slideshow__btn-wrapper{% if block.settings.slide_title != blank or block.settings.subheading != blank %} slideshow__btn-wrapper--push{% endif %}">
-                      <a href="{{ block.settings.button_link }}" class="btn slideshow__btn">
-                        {{ block.settings.button_label | escape }}
-                      </a>
-                    </div>
-                  {%- endif -%}
-                </div>
+                {%- assign show_link_button = false -%}
+                {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                  {%- assign show_link_button = true -%}
+                {%- endif -%}
+                {%- if show_link_button -%}
+                  <div class="slideshow__btn-wrapper{% if block.settings.slide_title != blank or block.settings.subheading != blank %} slideshow__btn-wrapper--push{% endif %}">
+                    <a href="{{ block.settings.button_link }}" class="btn slideshow__btn">
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                  </div>
+                {%- endif -%}
               </div>
-            </div>
+            </div> {% endcomment %}
           </div>
         {%- endfor -%}
       </div>
@@ -140,8 +138,21 @@
           {%- endif -%}
         {%- endif -%}
       </div>
+
+      <div class="slideshow__text-wrap slideshow__text-wrap--desktop">
+        <div class="slideshow__text-content slideshow__text-content--vertical-center text-left">
+          <ul class="slideshow__text-content-list">
+            <li>
+              <h2 class="h1 mega-title slideshow__title">「もっとおいしいものを届けたい。」</h2>
+            </li>
+            <li>
+              <span class="mega-subtitle slideshow__subtitle">そんな気持ちで育まれた安心・安全な 山都町の農産物をぜひご賞味ください。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="slideshow__text-wrap slideshow__text-wrap--mobile">
+    {% comment %} <div class="slideshow__text-wrap slideshow__text-wrap--mobile">
       {% if section.blocks.size > 1 %}
         <div class="slideshow__arrows slideshow__arrows--mobile">
           <button class="slideshow__arrow slideshow__arrow-previous" aria-label="{{ 'sections.slideshow.previous_slide' | t }}" data-slider-button>{% include 'icon-chevron-left' %}</button>
@@ -189,7 +200,7 @@
           </div>
         {%- endif -%}
       {%- endfor -%}
-    </div>
+    </div> {% endcomment %}
   {%- endif -%}
 
   {% if section.blocks.size == 0 %}

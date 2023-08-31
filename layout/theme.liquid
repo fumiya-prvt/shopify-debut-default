@@ -1,14 +1,29 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KB489MX');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_button }}">
+  <meta name="facebook-domain-verification" content="d3a0fwugb5hnthkqb4cgvvccatxcas" />
 
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
   <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
+
+  {% comment %} googlefonts読み込み {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+
 
   {%- assign header_font = settings.type_header_font -%}
   {%- assign base_font = settings.type_base_font -%}
@@ -75,6 +90,8 @@
   </script>
 
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+  <link rel="stylesheet" href="{{ 'yamato-yaoya.css' | asset_url }}" type="text/css">
+  <link rel="stylesheet" href="{{ 'yamato-basic.css' | asset_url }}" type="text/css">
 
   <style>
     {{ header_font | font_face: font_display: 'swap' }}
@@ -162,10 +179,26 @@
     }
   </script>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QC7KM5EC0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QC7KM5EC0');
+  </script>
   {{ content_for_header }}
+{% include "s10g_tracking" %}
 </head>
 
 <body class="template-{{ request.page_type | handle }}">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KB489MX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -173,33 +206,39 @@
     {% include 'cart-popup' %}
   {%- endif -%}
 
-  {% section 'header' %}
+  <div class="yamato-yaoya">
+    <div class="yamato-yaoya__main-container">
 
-  <div class="page-container drawer-page-content" id="PageContainer">
+      {% unless template == 'page.lp' %}
+        {% section 'site-header' %}
+      {% endunless %}
 
-    <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+      <div class="page-container drawer-page-content" id="PageContainer">
 
-    {% section 'footer' %}
+        <main class="{% unless template == 'page.lp' %}main-content{% endunless %} js-focus-hidden" id="MainContent" role="main" tabindex="-1">
+          {{ content_for_layout }}
+        </main>
 
-    <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
-      {{- 'sections.slideshow.navigation_instructions' | t -}}
-    </div>
 
-  </div>
+        <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
+          {{- 'sections.slideshow.navigation_instructions' | t -}}
+        </div>
 
-  <script type="application/json" data-cart-routes>
-    {
-      "cartUrl": "{{ routes.cart_url }}",
-      "cartAddUrl": "{{ routes.cart_add_url }}",
-      "cartChangeUrl": "{{ routes.cart_change_url }}"
-    }
-  </script>
+      </div>
+    </div><!-- /.{{ theme_name }}--main-container -->
+    {% unless template == 'page.lp' %}
+      {% section 'site-footer' %}
+    {% endunless %}
+  </div><!-- /.yamato-yaoya -->
+
 
   <ul hidden>
     <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" defer></script>
+  <script src="{{ 'yamato-yaoya.js' | asset_url }}" defer></script>
+  <script src="{{ 'yamato-animation.js' | asset_url }}" defer></script>
+  <script src="{{ 'yamato-drawer.js' | asset_url }}" defer></script>
 </body>
 </html>

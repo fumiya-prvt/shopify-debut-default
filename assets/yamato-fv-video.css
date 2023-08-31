@@ -1,0 +1,60 @@
+/* fv-video sp */
+.yamato-yaoya .fv-video .video-pc {
+  display: none;
+}
+.yamato-yaoya .fv-video {
+  width: 100%;
+  position: relative;
+}
+.yamato-yaoya .fv-video video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.yamato-yaoya .fv-video .scroll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16%;
+  margin: 0 auto;
+}
+.yamato-yaoya .fv-video .scroll__text {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .fv-video .scroll__icon {
+  display: flex;
+  align-items: center;
+}
+.yamato-yaoya .fv-anime {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: .3s all ease-in-out;
+}
+.yamato-yaoya .fv-anime-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* fv-video sp --- end --- */
+
+/* fv-video pc */
+@media (min-width: 750px) {
+  .yamato-yaoya .fv-video .video-sp {
+    display: none;
+  }
+  .yamato-yaoya .fv-video .video-pc {
+    display: block;
+  }
+  .yamato-yaoya .fv-video video {
+    height: 100vh;
+    margin: 0;
+  }
+}
+/* fv-video pc --- end --- */

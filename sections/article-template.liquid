@@ -1,24 +1,40 @@
 <div class="section-header text-center">
-  <h1 class="article__title" id="title-0">{{ article.title }}</h1>
-  {% if section.settings.blog_show_author %}
-    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-  {% endif %}
-
-  {% if section.settings.blog_show_date %}
-    <span class="article__date">
-      {{ article.published_at | time_tag: format: 'date' }}
+  <h1 class="article__title" id="title-0">
+    <span class="article__title-prop">
+      {% if section.settings.blog_show_date %}
+        <span class="article__date">
+          {{ article.published_at | time_tag: '%Y.%m.%d' }}
+        </span>
+      {% endif %}
+      {% if article.tags.size > 0 %}
+        {% for tag in article.tags limit: 1 %}
+          {%- if tag.handle == '新着' -%}
+            <span class="article__tag-icon __new">新着</span>
+          {%- else if tag.handle == 'お知らせ' -%}
+            <span class="article__tag-icon __info">お知らせ</span>
+          {%- endif -%}
+        {% endfor %}
+      {% endif %}
     </span>
-  {% endif %}
+    <span class="article__title-main">{{ article.title }}</span>
+  </h1>
+  {% comment %} {% if section.settings.blog_show_author %}
+    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+  {% endif %} {% endcomment %}
 </div>
+
+{%- if article.image -%}
+  <div class="article__eye-catch"><img src="{{ article | img_url: 'large'}}" alt=""></div>
+{%- endif -%}
 
 <div class="rte">
   {{ article.content }}
 </div>
 
+<!-- {{ blogs['news'].tags | json }} -->
 {% if section.settings.show_share_buttons %}
   {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
 {% endif %}
-
 
 
 {% schema %}

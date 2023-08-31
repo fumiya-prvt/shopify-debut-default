@@ -1,0 +1,11 @@
+<div class="cart-attribute__field" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 50px;">
+  <h3 style="margin: 0 .5em 0 0; font-weight: bold; font-size: 21px;">お届け希望時間</h3>
+  <select id="" name="attributes[配送時間指定]">
+    <option value=""{% if cart.attributes["配送時間指定"] == "指定無し" %} selected{% endif %}>指定無し</option>
+    <option value="0812"{% if cart.attributes["配送時間指定"] == "0812" %} selected{% endif %}>午前中</option>
+    <option value="1416"{% if cart.attributes["配送時間指定"] == "1416" %} selected{% endif %}>14-16時</option>
+    <option value="1618"{% if cart.attributes["配送時間指定"] == "1618" %} selected{% endif %}>16-18時</option>
+    <option value="1820"{% if cart.attributes["配送時間指定"] == "1820" %} selected{% endif %}>18-20時</option>
+    <option value="1921"{% if cart.attributes["配送時間指定"] == "1921" %} selected{% endif %}>19-21時</option>
+  </select>
+</div>

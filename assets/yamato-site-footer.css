@@ -1,0 +1,46 @@
+/* site-footer sp */
+.yamato-yaoya .site-footer {
+  padding: 0;
+  margin: 0;
+}
+.yamato-yaoya .site-footer .site-footer-logo {
+  width: 55px;
+  height: auto;
+  margin: 0 auto 8px;
+}
+.yamato-yaoya .site-footer .site-footer-copyright {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: #231C1C;
+  letter-spacing: 1px;
+}
+/* site-footer sp --- end --- */
+
+/* site-footer tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .site-footer .site-footer-logo {
+    width: 65px;
+    margin: 0 auto 10px;
+  }
+  .yamato-yaoya .site-footer .site-footer-copyright {
+    font-size: 10px;
+  }
+}
+/* site-footer tab --- end --- */
+
+/* site-footer pc */
+@media (min-width: 750px) {
+  .yamato-yaoya .site-footer {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .yamato-yaoya .site-footer .site-footer-logo {
+    margin: 0;
+  }
+}
+/* site-footer pc --- end --- */

@@ -5031,10 +5031,9 @@ theme.ProductVideo = (function() {
       selectors.productMediaWrapper
     );
 
-    var enableLooping =
-      productMediaWrapper.getAttribute(
-        'data-' + attributes.enableVideoLooping
-      ) === 'true';
+    var enableLooping = productMediaWrapper.getAttribute(
+      'data-' + attributes.enableVideoLooping
+    );
 
     // eslint-disable-next-line no-undef
     video.player = new Shopify.Video(video.element, {
@@ -6642,10 +6641,6 @@ theme.Cart = (function() {
     this.ajaxEnabled =
       this.container.getAttribute('data-ajax-enabled') === 'true';
 
-    this.cartRoutes = JSON.parse(
-      document.querySelector('[data-cart-routes]').innerHTML
-    );
-
     this._handleInputQty = theme.Helpers.debounce(
       this._handleInputQty.bind(this),
       500
@@ -6773,7 +6768,7 @@ theme.Cart = (function() {
         })
       };
 
-      fetch(this.cartRoutes.cartChangeUrl + '.js', request)
+      fetch('/cart/change.js', request)
         .then(function(response) {
           return response.json();
         })
@@ -7432,7 +7427,7 @@ theme.Cart = (function() {
         })
       };
 
-      fetch(this.cartRoutes.cartChangeUrl + '.js', request)
+      fetch('/cart/change.js', request)
         .then(function(response) {
           return response.json();
         })
@@ -7525,6 +7520,7 @@ theme.Cart = (function() {
         this.cartCountBubble.classList.add(classes.hide);
         this.cartCount.textContent = '';
       }
+      $('.cart-item-count').text(quantity);
     },
 
     _emptyCart: function() {
@@ -7876,7 +7872,7 @@ theme.Product = (function() {
       mediaQuerySmall: 'screen and (max-width: 749px)',
       bpSmall: false,
       enableHistoryState:
-        container.getAttribute('data-enable-history-state') === 'true',
+        container.getAttribute('data-enable-history-state') || false,
       namespace: '.slideshow-' + sectionId,
       sectionId: sectionId,
       sliderActive: false,
@@ -8004,10 +8000,6 @@ theme.Product = (function() {
           )
         : false;
 
-    this.cartRoutes = JSON.parse(
-      document.querySelector('[data-cart-routes]').innerHTML
-    );
-
     this.initMobileBreakpoint = this._initMobileBreakpoint.bind(this);
     this.initDesktopBreakpoint = this._initDesktopBreakpoint.bind(this);
 
@@ -8101,7 +8093,7 @@ theme.Product = (function() {
       var options = {
         container: this.container,
         enableHistoryState:
-          this.container.getAttribute('data-enable-history-state') === 'true',
+          this.container.getAttribute('data-enable-history-state') || false,
         singleOptionSelector: this.selectors.singleOptionSelector,
         originalSelectorId: this.selectors.originalSelectorId,
         product: this.productSingleObject
@@ -8243,7 +8235,7 @@ theme.Product = (function() {
     _addItemToCart: function(form) {
       var self = this;
 
-      fetch(this.cartRoutes.cartAddUrl + '.js', {
+      fetch('/cart/add.js', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -8383,7 +8375,7 @@ theme.Product = (function() {
         selling_plan_name
       );
 
-      fetch(this.cartRoutes.cartUrl + '.js', { credentials: 'same-origin' })
+      fetch('/cart.js', { credentials: 'same-origin' })
         .then(function(response) {
           return response.json();
         })
@@ -8565,6 +8557,7 @@ theme.Product = (function() {
 
       this.cartCountBubble.classList.remove(this.classes.hidden);
       this.cartCount.textContent = quantity;
+      $('.cart-item-count').text(quantity);
     },
 
     _showCartPopup: function() {

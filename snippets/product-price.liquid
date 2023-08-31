@@ -55,7 +55,13 @@
       </dt>
       <dd>
         <span class="price-item price-item--regular" data-regular-price>
-          {{ money_price }}
+          {%- if unit == 'optimized' -%}
+            {{ money_price | replace: '（税込）', '' }}
+            <small>(税込)</small>
+          {%- else -%}
+            {{ money_price }}
+          {%- endif -%}
+
         </span>
       </dd>
     </div>
@@ -73,7 +79,12 @@
       </dt>
       <dd>
         <s class="price-item price-item--regular" data-regular-price>
-          {{ compare_at_price | money }}
+          {%- if unit == 'optimized' -%}
+            {{ compare_at_price | money | replace: '（税込）', ''}}
+            <small>（税込）</small>
+          {%- else -%}
+            {{ compare_at_price | money }}
+          {%- endif -%}
         </s>
       </dd>
     </div>
