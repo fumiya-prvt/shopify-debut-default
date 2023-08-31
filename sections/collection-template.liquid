@@ -36,9 +36,10 @@
           <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
         </noscript>
         <div class="collection-hero__title-wrapper">
-          <h1 class="collection-hero__title page-width">
+          <h1 class="collection-hero__title">
               <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
               {{ collection.title }}
+              <small>{{ collection.handle | replace: '_', ' ' }}</small>
           </h1>
         </div>
       </div>
@@ -47,18 +48,18 @@
           <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
         </div>
       {% endif %}
-      {% if collection.description != blank %}
+      {% comment %} {% if collection.description != blank %}
         <div class="rte collection-description page-width">
           {{ collection.description }}
         </div>
-{% render 'collections.custom_fields' %}
-      {% endif %}
+      {% endif %} {% endcomment %}
     {% else %}
-      <div class="page-width">
+      {% comment %} <div class="page-width">
         <div class="section-header text-center">
           <h1>
               <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
               {{ collection.title }}
+              <small>{{ collection.handle | replace: '_', ' ' }}</small>
           </h1>
           {% if collection.description != blank %}
             <div class="rte">
@@ -69,8 +70,12 @@
             <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
           {% endif %}
         </div>
-      </div>
+      </div> {% endcomment %}
     {% endif %}
+
+    <div class="page-width">
+      {% include 'topic-path' %}
+    </div>
 
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
@@ -107,7 +112,9 @@
                       data-select-input
                     >
                       {%- for option in collection.sort_options -%}
-                        <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                        {%- unless option.value == 'title-ascending' or option.value == 'title-descending' or option.value == 'created-ascending' -%}
+                          <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                        {%- endunless -%}
                       {%- endfor -%}
                     </select>
                     {% include 'icon-chevron-down' %}
@@ -115,10 +122,11 @@
                 </div>
               {% endif %}
             </div>
-
+            {%- comment -%}
             <div class="filters-toolbar__item filters-toolbar__item--count">
               <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
             </div>
+            {%- endcomment -%}
           </div>
         </div>
       </div>
@@ -138,10 +146,10 @@
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
 
-      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %} yamato-collection-template overflow-none">
         {% for product in collection.products %}
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+            {% include 'product-card-yamato', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
           </li>
         {% else %}
           {% comment %}
@@ -304,7 +312,7 @@
             "ja": "グリッド",
             "ko": "그리드",
             "nb": "Rutenett",
-            "nl": "Grid",
+            "nl": "Raster",
             "pl": "Siatka",
             "pt-BR": "Grade",
             "pt-PT": "Grelha",
@@ -359,7 +367,7 @@
         "ja": "行あたりの商品数（グリッドのみ）",
         "ko": "열 별 제품 (그리드 전용)",
         "nb": "Produkter per rad (kun rutenett)",
-        "nl": "Producten per rij (alleen grid)",
+        "nl": "Producten per rij (alleen raster)",
         "pl": "Liczba produktów na wiersz (tylko siatka)",
         "pt-BR": "Produtos por linha (somente grade)",
         "pt-PT": "Produtos por linha (somente grelha)",
@@ -390,7 +398,7 @@
         "ja": "ページあたりの行数（グリッドのみ）",
         "ko": "페이지 별 열 (그리드 전용)",
         "nb": "Rader per side (kun rutenett)",
-        "nl": "Rijen per pagina (alleen grid)",
+        "nl": "Rijen per pagina (alleen raster)",
         "pl": "Liczba wierszy na stronę (tylko siatka)",
         "pt-BR": "Linhas por página (somente grade)",
         "pt-PT": "Linhas por página (somente grelha)",
@@ -451,7 +459,7 @@
         "nb": "Vis produktleverandører",
         "nl": "Productleveranciers weergeven",
         "pl": "Pokaż dostawców produktu",
-        "pt-BR": "Exibir fabricantes do produto",
+        "pt-BR": "Exibir fornecedores do produto",
         "pt-PT": "Mostrar fornecedores do produto",
         "sv": "Visa produktleverantörer",
         "th": "แสดงผู้ขายสินค้า",

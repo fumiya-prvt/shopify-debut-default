@@ -1,0 +1,110 @@
+/* footer-nav sp */
+.yamato-yaoya .sns-icon-only {
+  display: none;
+}
+.yamato-yaoya .footer-nav {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.yamato-yaoya .footer-nav-left {
+  width: 35%;
+}
+.yamato-yaoya .footer-nav-right {
+  width: 60%;
+}
+.yamato-yaoya .footer-nav .footer-nav-list,
+.yamato-yaoya .footer-nav .footer-nav-sns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .footer-nav .footer-nav-sns {
+  margin-top: 16px;
+  font-size: 12px;
+  row-gap: 8px;
+}
+.yamato-yaoya .footer-nav .footer-nav-sns a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 8px;
+}
+.yamato-yaoya .footer-nav .footer-nav-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* footer-nav sp ---end--- */
+
+/* footer-nav tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .footer-nav {
+    font-size: 16px;
+  }
+  .yamato-yaoya .footer-nav-left {
+    width: 45%;
+  }
+  .yamato-yaoya .footer-nav-right {
+    width: 55%;
+  }
+  .yamato-yaoya .footer-nav .footer-nav-list,
+  .yamato-yaoya .footer-nav .footer-nav-sns {
+    row-gap: 10px;
+  }
+  .yamato-yaoya .footer-nav .footer-nav-sns {
+    margin-top: 24px;
+    font-size: 14px;
+    row-gap: 12px;
+  }
+  .yamato-yaoya .footer-nav .footer-nav-sns a {
+    column-gap: 10px;
+  }
+}
+/* footer-nav tab ---end--- */
+
+/* footer-nav pc */
+@media(min-width: 750px) {
+  .yamato-yaoya .footer-nav .footer-nav-sns {
+    display: none;
+  }
+  .yamato-yaoya .footer-nav {
+    font-size: 14px;
+    flex-direction: column;
+  }
+  .yamato-yaoya .footer-nav-left,
+  .yamato-yaoya .footer-nav-right {
+    width: 100%;
+    padding: 8px 0;
+  }
+  .yamato-yaoya .footer-nav-left {
+    border-bottom: 1px solid #000;
+    position: relative;
+  }
+  .yamato-yaoya .footer-nav .footer-nav-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 0;
+    column-gap: 2%;
+    font-size: 12px;
+    font-size: clamp(12px, 1.5vw, 14px);
+  }
+  .yamato-yaoya .sns-icon-only {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    column-gap: 8px;
+  }
+  .yamato-yaoya .sns-icon-only a {
+    display: block;
+    padding: 4px;
+  }
+}
+/* footer-nav pc ---end--- */

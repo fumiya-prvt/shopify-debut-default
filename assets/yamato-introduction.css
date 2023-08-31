@@ -1,0 +1,115 @@
+/* introduction sp */
+.yamato-yaoya .introduction-content {
+  margin-bottom: 24px;
+}
+.yamato-yaoya .introduction-content .introduction-img {
+  margin: 0 calc(50% - 50vw) 24px;
+  width: 100vw;
+}
+.yamato-yaoya .introduction-content .introduction-text-title {
+  font-size: 19px;
+  font-weight: normal;
+  margin-bottom: 16px;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+.yamato-yaoya .introduction-content .introduction-text-text {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .introduction-btn .introduction-btn-wrapper {
+  text-align: right;
+}
+.yamato-yaoya .introduction-btn .introduction-btn-link {
+  border-bottom: 1px solid rgba(0, 0, 0, .5);;
+  padding-bottom: 3px;
+  font-size: 13px;
+  color: #000;
+  letter-spacing: 1px;
+}
+/* introduction sp ---end--- */
+
+/* introduction tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .introduction-content {
+    margin-bottom: 32px;
+  }
+  .yamato-yaoya .introduction-content .introduction-img {
+    margin: 0 auto 32px;
+    width: 100%;
+  }
+  .yamato-yaoya .introduction-content .large-img {
+    max-width: 400px;
+  }
+  .yamato-yaoya .introduction-content .introduction-text-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+    padding: 0 4%;
+  }
+  .yamato-yaoya .introduction-content .introduction-text-text {
+    font-size: 14px;
+    padding: 0 4%;
+  }
+  .yamato-yaoya .introduction-btn .introduction-btn-link {
+    font-size: 14px;
+  }
+}
+/* introduction tab ---end--- */
+
+/* introduction pc */
+@media (min-width: 750px) {
+  .yamato-yaoya .introduction-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  .yamato-yaoya .introduction-content:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+  .yamato-yaoya .introduction-content .introduction-img {
+    margin: 0;
+    width: 46%;
+    max-width: 440px;
+    overflow: hidden;
+  }
+  .yamato-yaoya .introduction-content .large-img {
+    max-width: 320px;
+  }
+  .yamato-yaoya .introduction-content .introduction-text {
+    margin: 0;
+    width: 46%;
+  }
+  .yamato-yaoya .introduction-content .introduction-text-title {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.7;
+  }
+  .yamato-yaoya .introduction-content .introduction-text-title::after {
+    content: '';
+    background-color: rgba(0, 0, 0, .5);
+    height: 1px;
+    flex-grow: 1;
+    margin: 8px 0 0 8px;
+  }
+  .yamato-yaoya .introduction-content .introduction-text-text {
+    font-size: 16px;
+    padding: 0;
+  }
+  .yamato-yaoya .introduction-btn {
+    margin-top: 72px;
+    margin-bottom: 72px;
+  }
+  .yamato-yaoya .introduction-btn .introduction-btn-wrapper {
+    text-align: center;
+  }
+  .yamato-yaoya .introduction-btn .introduction-btn-link {
+    font-size: 16px;
+  }
+}
+/* introduction pc ---end--- */

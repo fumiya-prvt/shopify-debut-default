@@ -1,21 +1,37 @@
 {
   "current": {
+    "color_button": "#ff5611",
+    "color_text_field_text": "#261204",
+    "color_text_field_border": "#a0a0a0",
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
-        }
-      },
-      "hero-1": {
-        "type": "hero",
-        "settings": {
-          "hero_size": "large",
-          "text_size": "large"
+          "symbol": "shopify:\/\/shop_images\/logo_symbol_2x_792488ed-1a02-4cb6-b4cc-61324ea61bbb.png",
+          "logo": "shopify:\/\/shop_images\/logo_2x_ca5804a8-84dc-489c-a9fb-91d1df9f0931.png",
+          "main_linklist": "link-list",
+          "sub_linklist": "link-list-1",
+          "message": false,
+          "home_page_only": true,
+          "message_text": "ここで告知してください",
+          "message_link": "",
+          "color_bg": "#3a3a3a",
+          "color_text": "#ffffff"
         }
       },
       "feature-row": {
         "type": "feature-row",
         "settings": {
+          "image": "shopify:\/\/shop_images\/commitment-1_2x_5d4fbe89-a3a8-4420-b345-fece1f8422e6.jpg",
+          "layout": "left",
+          "title": "産地のこだわり",
+          "text": "<p>熊本県山都町は、九州の真ん中「九州のへそ」に位置しています。<br\/>標高300ｍ～900ｍの冷涼な気候と寒暖差、そして山々からの清らかな水と、阿蘇山の火山灰を含んだミネラル豊富な土壌が、おいしい野菜を育てます。<br\/>山都町の農産物には、土づくりや栽培、お手入れ、収穫まで、生産者の愛情が注ぎ込まれています。<br\/>四季折々の自然に感謝し、「もっとおいしいものを届けたい」「みんなが元気になる野菜を食べてもらいたい」そんな気持ちで育てています。<\/p>",
+          "button_label": "山の都のやおやさんのこだわり",
+          "button_link": "shopify:\/\/pages\/commitment"
         }
       },
       "feature-columns": {
@@ -24,16 +40,28 @@
           "feature-columns-0": {
             "type": "text_block",
             "settings": {
+              "enable_image": true,
+              "title": "タイトルまたはキャッチコピーを追加する",
+              "text": "<p>ブログ記事、商品、またはプロモーションをお客様に伝えます。このテキストで商品について説明し、出品状況やスタイルの詳細を共有するか、最近のレビューやFAQを表示するスペースとして使用します。<\/p>",
+              "button_label": ""
             }
           },
           "feature-columns-1": {
             "type": "text_block",
             "settings": {
+              "enable_image": true,
+              "title": "タイトルまたはキャッチコピーを追加する",
+              "text": "<p>ブログ記事、商品、またはプロモーションをお客様に伝えます。このテキストで商品について説明し、出品状況やスタイルの詳細を共有するか、最近のレビューやFAQを表示するスペースとして使用します。<\/p>",
+              "button_label": ""
             }
           },
           "feature-columns-2": {
             "type": "text_block",
             "settings": {
+              "enable_image": true,
+              "title": "タイトルまたはキャッチコピーを追加する",
+              "text": "<p>ブログ記事、商品、またはプロモーションをお客様に伝えます。このテキストで商品について説明し、出品状況やスタイルの詳細を共有するか、最近のレビューやFAQを表示するスペースとして使用します。<\/p>",
+              "button_label": ""
             }
           }
         },
@@ -43,19 +71,19 @@
           "feature-columns-2"
         ],
         "settings": {
-          "title": ""
+          "title": "",
+          "align_text": "left"
         }
       },
       "collection": {
         "type": "collection",
         "settings": {
-          "grid": 4
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "settings": {
-          "text_size": "large"
+          "title": "山の都のオーガニック野菜セット",
+          "collection": "山の都のオーガニック野菜セット",
+          "grid": 3,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
         }
       },
       "quotes": {
@@ -64,16 +92,22 @@
           "quotes-0": {
             "type": "quote",
             "settings": {
+              "quote": "<p>あなたのストアの幸せなお客様を紹介するために、カスタマーレビューとお客様の声を追加してください。<\/p>",
+              "author": "筆者の名前"
             }
           },
           "quotes-1": {
             "type": "quote",
             "settings": {
+              "quote": "<p>あなたのストアの幸せなお客様を紹介するために、カスタマーレビューとお客様の声を追加してください。<\/p>",
+              "author": "筆者の名前"
             }
           },
           "quotes-2": {
             "type": "quote",
             "settings": {
+              "quote": "<p>あなたのストアの幸せなお客様を紹介するために、カスタマーレビューとお客様の声を追加してください。<\/p>",
+              "author": "筆者の名前"
             }
           }
         },
@@ -92,16 +126,22 @@
           "image-bar-0": {
             "type": "image",
             "settings": {
+              "alignment": "center",
+              "cta_label": ""
             }
           },
           "image-bar-1": {
             "type": "image",
             "settings": {
+              "alignment": "center",
+              "cta_label": ""
             }
           },
           "image-bar-2": {
             "type": "image",
             "settings": {
+              "alignment": "center",
+              "cta_label": ""
             }
           }
         },
@@ -111,6 +151,7 @@
           "image-bar-2"
         ],
         "settings": {
+          "section_height": "medium"
         }
       },
       "footer": {
@@ -119,32 +160,360 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
+              "title": "",
+              "menu": "footer"
             }
           },
-          "footer-1": {
-            "type": "newsletter",
+          "6e23d5da-f1d5-4dff-a9e3-fbcb4453b11d": {
+            "type": "link_list",
             "settings": {
+              "title": "",
+              "menu": "2"
+            }
+          },
+          "4640cdb7-d210-455f-99d2-63878fb9e471": {
+            "type": "link_list",
+            "settings": {
+              "title": "",
+              "menu": "3"
             }
           }
         },
         "block_order": [
           "footer-0",
-          "footer-1"
+          "6e23d5da-f1d5-4dff-a9e3-fbcb4453b11d",
+          "4640cdb7-d210-455f-99d2-63878fb9e471"
         ],
         "settings": {
-          "show_payment_icons": true
+          "logo": "shopify:\/\/shop_images\/logo-type-w_2x_332ce509-cf3d-4bb7-800d-f5d419275cdf.png",
+          "show_payment_icons": true,
+          "color_footer_bg": "#f6f6f6",
+          "color_footer_text": "#ffffff",
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": false,
+          "heading": "あなたへのおすすめ",
+          "show_vendor": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 8,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": false
+        }
+      },
+      "1616992822106fcf0c": {
+        "type": "yamato-rotate-blog",
+        "settings": {
+          "title": "お知らせ",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "show_view_all": false
+        }
+      },
+      "1617001767f59874d8": {
+        "type": "collection-popular",
+        "settings": {
+          "title": "売れ筋ランキング",
+          "collection": "ranking",
+          "grid": 3,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "16170436294862478d": {
+        "type": "collection-yamato",
+        "settings": {
+          "title": "",
+          "collection": "organic_vegetable_set",
+          "grid": 3,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "1617044175c0aa3cfe": {
+        "type": "collection-yamato",
+        "settings": {
+          "title": "",
+          "collection": "seasonal_vegetable_set",
+          "grid": 3,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "16170442070aebd511": {
+        "type": "collection-yamato",
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "collection": "organic_vegetables",
+          "grid": 3,
+          "rows": 3,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "1617045378e6f0c96f": {
+        "type": "yamato-blog",
+        "settings": {
+          "title": "お知らせ",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "show_view_all": true
+        }
+      },
+      "161714600587c94fa3": {
+        "type": "slideshow-desktop",
+        "blocks": {
+          "161714600587c94fa3-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_01_2x_5dac06d2-e71e-4be7-a930-8c67162ecd3d.jpg",
+              "alignment": "center center",
+              "slide_title": "画像スライド",
+              "subheading": "あなたのブランドのストーリーをビデオや画像で伝える",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "161714600587c94fa3-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_04_2x_58561b21-1ede-4248-aa82-a4fd53aeda6a.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "56967d9a-e5a4-4019-bc5f-b547e422bf06": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_02_2x_012ab819-b961-4bb4-86af-89a12580ad74.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "03745244-3b09-4351-9b25-64c8291fce8b": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_03_2x_1ff55e09-14bf-47b2-b726-e537c21bbaef.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "161714600587c94fa3-0",
+          "161714600587c94fa3-1",
+          "56967d9a-e5a4-4019-bc5f-b547e422bf06",
+          "03745244-3b09-4351-9b25-64c8291fce8b"
+        ],
+        "settings": {
+          "slideshow_height": "adapt",
+          "text_size": "medium",
+          "text_alignment": "center center",
+          "show_overlay": false,
+          "autorotate": true,
+          "autorotate_speed": 5
+        }
+      },
+      "1617146238cae69b74": {
+        "type": "slideshow-handheld",
+        "blocks": {
+          "1617146238cae69b74-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_sp_02-1_2x_a76f14ba-e230-4b4a-aa46-189bf7361729.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1617146238cae69b74-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_sp_01-1_2x_3427a439-0470-4762-b148-e3a94bf84c5b.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "64308793-7826-4589-a9b3-1ca390f4a8ec": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_sp_04-1_2x_a282c061-2086-4e80-b24b-bd2416ca889b.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "7089897a-3719-40e9-a091-f153c4153501": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mv_sp_03-1_2x_b1ea65ea-f3a2-4334-845e-17c5eccf54b2.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1617146238cae69b74-0",
+          "1617146238cae69b74-1",
+          "64308793-7826-4589-a9b3-1ca390f4a8ec",
+          "7089897a-3719-40e9-a091-f153c4153501"
+        ],
+        "settings": {
+          "slideshow_height": "adapt",
+          "text_size": "medium",
+          "text_alignment": "center center",
+          "show_overlay": false,
+          "autorotate": true,
+          "autorotate_speed": 5
+        }
+      },
+      "password-header": {
+        "type": "password-header",
+        "settings": {
+          "logo_max_width": 100,
+          "header": ""
+        }
+      },
+      "password-content": {
+        "type": "password-content",
+        "settings": {
+          "newsletter_enable": false,
+          "newsletter_form_heading": "ストアに関する最新情報をメールでお知らせします。",
+          "newsletter_form_subheading": "<p>新商品やセール情報などのお得な情報をお届けします。<\/p>",
+          "newsletter_placeholder": "メールアドレス",
+          "newsletter_button_text": "通知を受け取る"
+        }
+      },
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "show_share_buttons": false,
+          "social_message": "情報を広く伝えましょう"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": true,
+          "cart_notes_enable": false
+        }
+      },
+      "blog-recipe-template": {
+        "type": "blog-recipe-template",
+        "settings": {
+          "layout": "list",
+          "blog_show_author": false,
+          "blog_show_date": false
+        }
+      },
+      "site-header": {
+        "type": "site-header",
+        "settings": {
+        }
+      },
+      "fv-video": {
+        "type": "fv-video",
+        "settings": {
+        }
+      },
+      "introduction": {
+        "type": "introduction",
+        "settings": {
+        }
+      },
+      "banner-one": {
+        "type": "banner-one",
+        "settings": {
+        }
+      },
+      "product-list": {
+        "type": "product-list",
+        "settings": {
+        }
+      },
+      "news": {
+        "type": "news",
+        "settings": {
+          "blog": "news",
+          "post_limit": 3
+        }
+      },
+      "site-footer": {
+        "type": "site-footer",
+        "settings": {
         }
       }
     },
     "content_for_index": [
-      "hero-1",
+      "161714600587c94fa3",
+      "1617146238cae69b74",
+      "1616992822106fcf0c",
       "feature-row",
-      "feature-columns",
-      "collection",
-      "hero-2",
-      "quotes",
-      "image-bar"
-    ]
+      "1617001767f59874d8",
+      "16170436294862478d",
+      "1617044175c0aa3cfe",
+      "16170442070aebd511",
+      "1617045378e6f0c96f"
+    ],
+    "blocks": {
+      "1634868289dc8f0c5c": {
+        "type": "shopify:\/\/apps\/subscription-recurring-order\/blocks\/wsSubscriptionConfig\/8af379fe-c7cd-403a-aef3-06ca83872037",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
@@ -343,10 +712,9 @@
         "header": {
           "type": "header",
           "settings": {
-            "align_logo": "left",
             "logo": "",
-            "logo_max_width": 135,
             "main_linklist": "main-menu",
+            "sub_linklist": "sub-menu",
             "message": true,
             "color_bg": "#162950",
             "color_text": "#ffffff"

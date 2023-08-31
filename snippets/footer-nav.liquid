@@ -1,0 +1,109 @@
+<!-- Get: Template Name - {{ template.name }} -->
+<link rel="stylesheet" href="{{ 'yamato-footer-nav.css' | asset_url }}" type="text/css">
+
+<div class="footer-bgc yamato-commitment">
+  <nav class="footer-nav page-width">
+    <div class="footer-nav-left">
+      <ul class="footer-nav-list alphabet">
+        <li>
+          <a href="{{ routes.root_url }}">
+            <span class="footer-nav-label">home</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}collections/product_list/">
+            <span class="footer-nav-label">shopping</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}pages/commitment#overview">
+            <span class="footer-nav-label">about</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}pages/commitment/">
+            <span class="footer-nav-label">stories</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}blogs/recipe/">
+            <span class="footer-nav-label">recipe</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}blogs/producer/">
+            <span class="footer-nav-label">human</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}blogs/news/">
+            <span class="footer-nav-label">news</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}#guide">
+            <span class="footer-nav-label">guide</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="sns-icon-only">
+        <li>
+          <a href="{{ "https://www.facebook.com/higoyamato/" }}" target="_blank">
+            <span class="footer-nav-icon">{% render 'icon-facebook' %}</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ "https://www.instagram.com/higoyamato/" }}" target="_blank">
+            <span class="footer-nav-icon">{% render 'icon-instagram' %}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-nav-right">
+      <ul class="footer-nav-list">
+        <li>
+          <a href="{{ routes.root_url }}pages/commitment#overview">
+            <span class="footer-nav-label">事業社紹介</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}pages/contact">
+            <span class="footer-nav-label">お問い合わせ</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}pages/specified_commercial_code">
+            <span class="footer-nav-label">特定商取引法に基づく表記</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.root_url }}pages/privacy">
+            <span class="footer-nav-label">プライバシー・ポリシー</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ routes.cart_url }}">
+            <span class="footer-nav-label">カートを見る</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="footer-nav-sns alphabet">
+        <li>
+          <a href="{{ "https://www.facebook.com/higoyamato/" }}" target="_blank">
+            <span class="footer-nav-icon">{% render 'icon-facebook' %}</span>
+            <span class="footer-nav-label">facebook</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ "https://www.instagram.com/yamanomiyakono_yaoyasan/" }}" target="_blank">
+            <span class="footer-nav-icon">{% render 'icon-instagram' %}</span>
+            <span class="footer-nav-label">instagram</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

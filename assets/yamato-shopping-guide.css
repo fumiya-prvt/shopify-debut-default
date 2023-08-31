@@ -1,0 +1,174 @@
+/* shopping-guide sp */
+.yamato-yaoya .shopping-guide .heading small {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.yamato-yaoya .guide-heading-large {
+  position: relative;
+  font-size: 16px;
+  padding-left: 14px;
+  margin: 12px 0 16px;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .guide-heading-large::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  display: block;
+}
+.yamato-yaoya .guide-heading-small {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .guide-text {
+  font-size: 12px;
+  margin-bottom: 16px;
+  color: #231C1C;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .guide-table {
+  font-size: 12px;
+  margin-bottom: 16px;
+  border: none;
+}
+.yamato-yaoya .guide-table thead th,
+.yamato-yaoya .guide-table tbody th,
+.yamato-yaoya .guide-table tbody td {
+  border: 1px solid #000;
+}
+.yamato-yaoya .guide-table th,
+.yamato-yaoya .guide-table td {
+  width: 50%;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .guide-table .table-bg {
+  background-color: #893E3E;
+  color: #fff;
+}
+.yamato-yaoya .guide-table .table-cell {
+  background-color: #fff;
+  color: #231C1C;
+}
+.yamato-yaoya .guide-table .table-center {
+  text-align: center;
+}
+.yamato-yaoya .guide-note {
+  font-size: 11px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .guide-contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.yamato-yaoya .guide-contact-list dt {
+  width: 30%;
+}
+.yamato-yaoya .guide-contact-list dd {
+  width: 65%;
+  margin: 0;
+}
+.yamato-yaoya .margin-bottom-none {
+  margin-bottom: 0;
+}
+/* shopping-guide sp ---end--- */
+
+/* shopping-guide tab */
+@media (min-width: 429px) {
+  .yamato-yaoya .guide-heading-large {
+    font-size: 18px;
+    padding-left: 16px;
+    margin: 16px 0 24px;
+  }
+  .yamato-yaoya .guide-heading-large::before {
+    transform: translateY(-40%);
+    width: 10px;
+    height: 10px;
+  }
+  .yamato-yaoya .guide-heading-small {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .yamato-yaoya .guide-text {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .yamato-yaoya .guide-table {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .yamato-yaoya .guide-note {
+    font-size: 12px;
+    margin-bottom: 32px;
+  }
+  .yamato-yaoya .guide-contact-list {
+    font-size: 14px;
+  }
+  .yamato-yaoya .guide-contact-list dt {
+    width: 30%;
+  }
+  .yamato-yaoya .guide-contact-list dd {
+    width: 70%;
+  }
+}
+/* shopping-guide tab ---end--- */
+
+/* shopping-guide pc */
+@media (min-width: 750px) {
+  .yamato-yaoya .guide-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .yamato-yaoya .guide-column {
+    width: 48%;
+  }
+  .yamato-yaoya .guide-heading-large {
+    font-size: 20px;
+    padding-left: 16px;
+    margin: 0 0 16px;
+  }
+  .yamato-yaoya .guide-heading-small {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .yamato-yaoya .guide-text {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .yamato-yaoya .guide-table {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .yamato-yaoya .guide-note {
+    font-size: 12px;
+    margin-bottom: 32px;
+  }
+  .yamato-yaoya .guide-contact-list {
+    font-size: 16px;
+  }
+  .yamato-yaoya .guide-contact-list dt {
+    width: 30%;
+  }
+  .yamato-yaoya .guide-contact-list dd {
+    width: 70%;
+    margin: 0;
+  }
+  .yamato-yaoya .margin-bottom-none {
+    margin-bottom: 0;
+  }
+}
+/* shopping-guide pc ---end--- */

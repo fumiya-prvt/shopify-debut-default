@@ -1,0 +1,291 @@
+{% paginate blog.articles by 12 %}
+
+<header class="collection-header">
+  {%- assign hero_img = 'producer-hero_2x.jpg' | asset_url -%}
+  <!-- {{ hero_img }} -->
+  <div class="collection-hero">
+    <div class="collection-hero__image" style="background-image: url({{ hero_img }});"></div>
+    <div class="collection-hero__title-wrapper">
+      <h1 class="collection-hero__title">
+          <span class="visually-hidden">生産者紹介: </span>
+          生産者紹介
+          <small>Producers</small>
+      </h1>
+    </div>
+  </div>
+</header>
+
+<div class="page-width">
+  {% include 'topic-path' %}
+</div>
+
+{% if section.settings.layout == 'grid' %}
+  <div class="page-width">
+<!--     <ul class="grid grid--uniform grid--blog"> -->
+    <ul class="grid grid--uniform">
+      {% for article in blog.articles %}
+        <li class="grid__item medium-up--one-third">
+          <a href="{{ article.url }}" class="article__link">
+<!--             <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}"> -->
+            <img style="width: 100%;" src="{{ article.image.src | product_img_url: 'medium' }}">
+            
+<!--             <div class="article__title h3{% if article.image %} article__title--has-image{% endif %}"> -->
+            <div style="text-align: center;font-weight: bold;" class="article__title {% if article.image %} article__title--has-image{% endif %}">
+              {{ article.title }}
+            </div>
+          </a>
+          
+<!--           <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
+            {% if section.settings.blog_show_author %}
+              <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+            {% endif %}
+
+            {% if section.settings.blog_show_date %}
+              <span class="article__date">
+                {{ article.published_at | time_tag: format: 'date' }}
+              </span>
+            {% endif %}
+
+            <div class="rte article__grid-excerpt">
+              {% if article.excerpt.size > 0 %}
+                {{ article.excerpt }}
+              {% else %}
+                {{ article.content | strip_html | truncate: 150 }}
+              {% endif %}
+            </div>
+
+            {% if article.tags.size > 0 %}
+              <div class="article__tags rte">
+                <ul class="list--inline" aria-label="{{ 'blogs.article.tags' | t }}">
+                  {% for tag in article.tags %}
+                    <li>
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article__grid-tag">{{ tag }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            <ul class="list--inline article__meta-buttons">
+              <li>
+                <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+                  {{ 'blogs.article.read_more' | t }}
+                </a>
+              </li>
+
+              {% if blog.comments_enabled? and article.comments_count > 0 %}
+                <li>
+                  <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
+                    {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </div> -->
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% else %}
+  <ul class="blog-list-view yamato-blog-list">
+    {% for article in blog.articles %}
+      <li>
+        <a href="{{ article.url }}" class="article__link">
+          <span class="article__prop">
+<!--             {% if section.settings.blog_show_date %}
+              <span class="article__date">
+                {{ article.published_at | time_tag: '%Y.%m.%d' }}
+              </span>
+            {% endif %} -->
+            {% if article.tags.size > 0 %}
+              {% for tag in article.tags limit: 1 %}
+                {%- if tag.handle == '新着' -%}
+                  <span class="article__tag-icon __new">新着</span>
+                {%- else if tag.handle == 'お知らせ' -%}
+                  <span class="article__tag-icon __info">お知らせ</span>
+                {%- endif -%}
+              {% endfor %}
+            {% endif %}
+          </span>
+          <span class="article__title">{{ article.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{%- if paginate.pages > 1 -%}
+  {% include 'pagination', paginate: paginate %}
+{%- endif -%}
+
+{% endpaginate %}
+
+
+
+{% schema %}
+{
+  "name": {
+    "cs": "Stránky blogu",
+    "da": "Blogsider",
+    "de": "Blogseiten",
+    "en": "Blog pages",
+    "es": "Páginas del blog",
+    "fi": "Blogisivut",
+    "fr": "Pages du blog",
+    "it": "Pagine del blog",
+    "ja": "ブログページ",
+    "ko": "블로그 페이지",
+    "nb": "Bloggsider",
+    "nl": "Blogpagina's",
+    "pl": "Strony blogu",
+    "pt-BR": "Páginas do blog",
+    "pt-PT": "Páginas do blogue",
+    "sv": "Bloggsidor",
+    "th": "หน้าบล็อก",
+    "tr": "Blog sayfaları",
+    "vi": "Trang blog",
+    "zh-CN": "博客页面",
+    "zh-TW": "部落格頁面"
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": {
+        "cs": "Rozvržení",
+        "da": "Layout",
+        "de": "Layout",
+        "en": "Layout",
+        "es": "Diseño",
+        "fi": "Asettelu",
+        "fr": "Mise en page",
+        "it": "Layout",
+        "ja": "レイアウト",
+        "ko": "레이아웃",
+        "nb": "Oppsett",
+        "nl": "Opmaak",
+        "pl": "Układ",
+        "pt-BR": "Layout",
+        "pt-PT": "Esquema",
+        "sv": "Layout",
+        "th": "เลย์เอาต์",
+        "tr": "Düzen",
+        "vi": "Bố cục",
+        "zh-CN": "布局",
+        "zh-TW": "版面配置"
+      },
+      "default": "list",
+      "options": [
+        {
+          "value": "grid",
+          "label": {
+            "cs": "Mřížka",
+            "da": "Gitter",
+            "de": "Raster",
+            "en": "Grid",
+            "es": "Cuadrícula",
+            "fi": "Ruudukko",
+            "fr": "Grille",
+            "it": "Griglia",
+            "ja": "グリッド",
+            "ko": "그리드",
+            "nb": "Rutenett",
+            "nl": "Raster",
+            "pl": "Siatka",
+            "pt-BR": "Grade",
+            "pt-PT": "Grelha",
+            "sv": "Rutnät",
+            "th": "กริด",
+            "tr": "Izgara",
+            "vi": "Lưới",
+            "zh-CN": "网格",
+            "zh-TW": "網格"
+          }
+        },
+        {
+          "value": "list",
+          "label": {
+            "cs": "Seznam",
+            "da": "Liste",
+            "de": "Liste",
+            "en": "List",
+            "es": "Lista",
+            "fi": "Luettelo",
+            "fr": "Liste",
+            "it": "Elenco",
+            "ja": "リスト",
+            "ko": "목록",
+            "nb": "Liste",
+            "nl": "Lijst",
+            "pl": "Lista",
+            "pt-BR": "Lista",
+            "pt-PT": "Lista",
+            "sv": "Lista",
+            "th": "รายการ",
+            "tr": "Liste",
+            "vi": "Danh sách",
+            "zh-CN": "列表",
+            "zh-TW": "清單"
+          }
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": {
+        "cs": "Zobrazit autora",
+        "da": "Vis forfatter",
+        "de": "Autor anzeigen",
+        "en": "Show author",
+        "es": "Mostrar autor",
+        "fi": "Näytä tekijä",
+        "fr": "Afficher l'auteur",
+        "it": "Mostra autore",
+        "ja": "執筆者を表示する",
+        "ko": "작성자 표시",
+        "nb": "Vis forfatter",
+        "nl": "Auteur weergeven",
+        "pl": "Pokaż autora",
+        "pt-BR": "Exibir autor",
+        "pt-PT": "Mostrar autor",
+        "sv": "Visa författare",
+        "th": "แสดงผู้เขียน",
+        "tr": "Yazarı göster",
+        "vi": "Hiển thị tác giả",
+        "zh-CN": "显示作者",
+        "zh-TW": "顯示作者"
+      },
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": {
+        "cs": "Zobrazit datum",
+        "da": "Vis dato",
+        "de": "Datum anzeigen",
+        "en": "Show date",
+        "es": "Mostrar fecha",
+        "fi": "Näytä päivämäärä",
+        "fr": "Afficher la date",
+        "it": "Mostra data",
+        "ja": "日付を表示する",
+        "ko": "날짜 표시",
+        "nb": "Vis dato",
+        "nl": "Datum weergeven",
+        "pl": "Pokaż datę",
+        "pt-BR": "Exibir data",
+        "pt-PT": "Mostrar data",
+        "sv": "Visa datum",
+        "th": "แสดงวันที่",
+        "tr": "Tarihi göster",
+        "vi": "Hiển thị ngày",
+        "zh-CN": "显示日期",
+        "zh-TW": "顯示日期"
+      },
+      "default": true
+    }
+  ]
+}
+{% endschema %}

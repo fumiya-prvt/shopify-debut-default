@@ -11,10 +11,46 @@
   {%- assign number_of_comments = article.comments_count -%}
 {%- endif -%}
 
-<article class="page-width" aria-labelledby="title-0">
+<header class="collection-header">
+  {%- assign hero_img = 'news-hero_2x.jpg' | asset_url -%}
+  <div class="collection-hero">
+    <div class="collection-hero__image" style="background-image: url({{ hero_img }});"></div>
+    <div class="collection-hero__title-wrapper">
+      <h1 class="collection-hero__title">
+          <span class="visually-hidden">お知らせ: </span>
+          お知らせ
+          <small>News</small>
+      </h1>
+    </div>
+  </div>
+</header>
+
+<div class="page-width">
+  {% include 'topic-path' %}
+</div>
+
+<article class="page-width yamato-blog-article" aria-labelledby="title-0">
   <div class="grid">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
       {% section 'article-template' %}
+
+      <div class="btn-wrapper">
+        <a href="{{ blog.url }}" class="btn btn--secondary">
+          お知らせ一覧へ戻る
+        </a>
+      </div>
+
+      {% if article.tags.size > 0 %}
+        <div class="blog-tag-nav">
+          <h3 class="blog-tag-nav__title">カテゴリ一覧</h3>
+          <ul>
+            {% for tag in blog.tags %}
+              <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
     </div>
   </div>
 </article>
@@ -133,12 +169,12 @@
   </div>
 {% endif %}
 
-<div class="text-center return-link-wrapper page-width">
+{% comment %} <div class="text-center return-link-wrapper page-width">
   <a href="{{ blog.url }}" class="btn btn--secondary btn--has-icon-before">
     {% include 'icon-arrow-left' %}
     {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
   </a>
-</div>
+</div> {% endcomment %}
 
 <script type="application/ld+json">
 {

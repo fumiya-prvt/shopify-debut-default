@@ -1,0 +1,198 @@
+<link rel="stylesheet" href="{{ 'yamato-news.css' | asset_url }}" type="text/css">
+
+<div class="bgc news yamato-commitment">
+  <div class="page-width">
+    <h2 class="heading fade">
+      <small>最新のお知らせ</small>
+      <span class="heading-label alphabet">recent news</span>
+    </h2>
+
+    {%- assign blog = blogs[section.settings.blog] -%}
+
+    {% unless blog.articles_count == 0 %}
+      <div class="news-content">
+        <ul>
+          {% for article in blog.articles limit: section.settings.post_limit %}
+            <li>
+              <a href="{{ article.url }}" class="article__link">
+                <span class="article__date fade">
+                  {{ article.published_at | time_tag: format: 'date' }}
+                </span>
+                <h3 class="article__title fade">
+                  {{ article.title }}
+                </h3>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="article__list-btn fade">
+          <div class="article__list-btn--wrapper">
+            <a href="{{ routes.root_url }}blogs/news/" class="article__list-btn--link link-btn">
+              <span>一覧を表示 →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="news-content">
+        {% for i in (1..section.settings.post_limit) %}
+          <div class="news-content__item">
+            <a href="{{ article.url }}">
+              <span class="article__date">{{ article.published_at | time_tag: format: 'date' }}</span>
+              <h3 class="article__title">{{ 'homepage.onboarding.blog_title' | t }}</h3>
+            </a>
+          </div>
+        {% endfor %}
+        <div class="article__list-btn">
+          <div class="article__list-btn--wrapper">
+            <a href="{{ routes.root_url }}blogs/news/" class="article__list-btn--link link-btn">
+              <span>一覧を表示 →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endunless %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "cs": "Příspěvky na blogu",
+    "da": "Blogopslag",
+    "de": "Blogposts",
+    "en": "Blog posts",
+    "es": "Entradas del blog",
+    "fi": "Blogijulkaisut",
+    "fr": "Articles de blog",
+    "it": "Articoli del blog",
+    "ja": "ニュース",
+    "ko": "블로그 게시물",
+    "nb": "Blogginnlegg",
+    "nl": "Blogberichten",
+    "pl": "Posty na blogu",
+    "pt-BR": "Posts do blog",
+    "pt-PT": "Publicações no blogue",
+    "sv": "Blogginlägg",
+    "th": "โพสต์บล็อก",
+    "tr": "Blog gönderileri",
+    "vi": "Bài viết blog",
+    "zh-CN": "博客文章",
+    "zh-TW": "部落格文章"
+  },
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": {
+        "cs": "Blog",
+        "da": "Blog",
+        "de": "Blog",
+        "en": "Blog",
+        "es": "Blog",
+        "fi": "Blogi",
+        "fr": "Blog",
+        "it": "Blog",
+        "ja": "ブログ",
+        "ko": "블로그",
+        "nb": "Blogg",
+        "nl": "Blog",
+        "pl": "Blog",
+        "pt-BR": "Blog",
+        "pt-PT": "Blogue",
+        "sv": "Blogg",
+        "th": "บล็อก",
+        "tr": "Blog",
+        "vi": "Blog",
+        "zh-CN": "博客",
+        "zh-TW": "部落格"
+      }
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "label": {
+        "cs": "Příspěvky",
+        "da": "Opslag",
+        "de": "Posts",
+        "en": "Posts",
+        "es": "Publicaciones",
+        "fi": "Julkaisut",
+        "fr": "Articles",
+        "it": "Articoli",
+        "ja": "投稿",
+        "ko": "게시물",
+        "nb": "Innlegg",
+        "nl": "Berichten",
+        "pl": "Posty",
+        "pt-BR": "Posts",
+        "pt-PT": "Publicações",
+        "sv": "Inlägg",
+        "th": "โพสต์",
+        "tr": "Gönderiler",
+        "vi": "Bài viết",
+        "zh-CN": "文章",
+        "zh-TW": "貼文"
+      },
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "cs": "Příspěvky na blogu",
+        "da": "Blogopslag",
+        "de": "Blogposts",
+        "en": "Blog posts",
+        "es": "Entradas del blog",
+        "fi": "Blogijulkaisut",
+        "fr": "Articles de blog",
+        "it": "Articoli del blog",
+        "ja": "ニュース",
+        "ko": "블로그 게시물",
+        "nb": "Blogginnlegg",
+        "nl": "Blogberichten",
+        "pl": "Posty na blogu",
+        "pt-BR": "Posts do blog",
+        "pt-PT": "Publicações no blogue",
+        "sv": "Blogginlägg",
+        "th": "โพสต์บล็อก",
+        "tr": "Blog gönderileri",
+        "vi": "Bài viết blog",
+        "zh-CN": "博客文章",
+        "zh-TW": "部落格文章"
+      },
+      "category": {
+        "cs": "Blog",
+        "da": "Blog",
+        "de": "Blog",
+        "en": "Blog",
+        "es": "Blog",
+        "fi": "Blogi",
+        "fr": "Blog",
+        "it": "Blog",
+        "ja": "ブログ",
+        "ko": "블로그",
+        "nb": "Blogg",
+        "nl": "Blog",
+        "pl": "Blog",
+        "pt-BR": "Blog",
+        "pt-PT": "Blogue",
+        "sv": "Blogg",
+        "th": "บล็อก",
+        "tr": "Blog",
+        "vi": "Blog",
+        "zh-CN": "博客",
+        "zh-TW": "部落格"
+      },
+      "settings": {
+        "blog": "News",
+        "post_limit": 3
+      }
+    }
+  ]
+}
+{% endschema %}

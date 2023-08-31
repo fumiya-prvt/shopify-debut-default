@@ -1,0 +1,124 @@
+<header class="collection-header">
+  {%- assign hero_img = 'guide_hero_2x.jpg' | asset_url -%}
+  <!-- {{ hero_img }} -->
+  <div class="collection-hero">
+    <div class="collection-hero__image" style="background-image: url({{ hero_img }});"></div>
+    <div class="collection-hero__title-wrapper">
+      <h1 class="collection-hero__title">
+          <span class="visually-hidden">お買い物ガイド: </span>
+          お買い物ガイド
+          <small>SHOPPING GUIDE</small>
+      </h1>
+    </div>
+  </div>
+</header>
+
+<div class="page-width">
+  {% include 'topic-path' %}
+</div>
+
+<div class="page-width yamato-guide">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="rte">
+        <h2 class="guide-heading-a01">■ 商品のお届け</h2>
+        <h3 class="guide-heading-b01">ご注文</h3>
+        <p class="guide-text">定期宅配（毎週・隔週・月1回）と、その都度のご注文をお選びいただけます。</p>
+
+        <h3 class="guide-heading-b01">発送日</h3>
+        <p class="guide-text">お申込みから24時間後にご注文が確定となります。</p>
+        <table class="guide-table" data-scrollable="false">
+          <thead>
+            <tr>
+              <th>ご注文日</th>
+              <th>発送予定日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>火曜・水曜・木曜</th>
+              <td>翌火曜</td>
+            </tr>
+            <tr>
+              <th>金曜・土曜・日曜・月曜</th>
+              <td>翌金曜</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="guide-text">年末年始、祝日等を含む場合は発送日が変更となる場合がありますのでご了承ください。</p>
+
+        <h3 class="guide-heading-b01">お届け予定日</h3>
+        <p class="guide-text">地域により発送からのお届け予定日が異なります。</p>
+        <table class="guide-table" data-scrollable="false">
+          <thead>
+            <tr>
+              <th>地域</th>
+              <th>お届け日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>九州（沖縄県を除く）・山口圏内</th>
+              <td>発送日の翌日</td>
+            </tr>
+            <tr>
+              <th>関西・中国・中部</th>
+              <td>発送日の翌日14時以降</td>
+            </tr>
+            <tr>
+              <th>関東・四国・東北・北陸・信越</th>
+              <td>発送日の翌々日</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="guide-text">北海道、沖縄、離島への発送はお問い合わせください。<br>宅配事業社の事情により到着が遅れる場合がありますのでご了承ください。</p>
+
+        <h3 class="guide-heading-b01">配送時間</h3>
+        <p class="guide-text">午前中 / 14ー16時 / 16ー18時 / 18ー20時 / 19ー21時 の時間帯からお選びいただけます。</p>
+        <div class="guide-figure"><img src="https://cdn.shopify.com/s/files/1/0554/3385/5133/files/time-table_2x_19b66a2c-6903-4d0a-a80f-d21d4a48fb23.png?v=1617071184" alt=""></div>
+
+        <h2 class="guide-heading-a01">■ お支払方法</h2>
+        <h3 class="guide-heading-b01">クレジットカード</h3>
+        <p class="guide-text">クレジットカードの種類は、VISA / Master / JCB / AMEX の4種類がご利用いただけます。支払時期はカード会社に準じます。</p>
+
+        <h3 class="guide-heading-b01">代金引換</h3>
+        <p class="guide-text">ヤマト便の代金引換便にてお届けいたします。<br>商品のお受け取りの際に、商品代金+送料+代引き手数料（一律330円）をお支払いください。</p>
+
+        {% comment %} 配送料の内容は snippets に格納 {% endcomment %}
+        {% render 'shipping-information', document_area_flow: 'guide' %}
+
+        <h2 class="guide-heading-a01">■ キャンセル</h2>
+        <p class="guide-text">キャンセルを希望される場合は、ご購入から24時間以内にメール<a href="mailto:adomin@yamanomiyakono-yaoyasan.shop" style="padding: 0; border: none;">adomin@yamanomiyakono-yaoyasan.shop</a>へご連絡をお願いします。<br>野菜の収穫手配の都合上、ご購入から24時間を過ぎてのキャンセル、変更は受付できません。<br>やむを得ずご購入から24時間を過ぎてキャンセルをされる場合、もしくは受け取り拒否をされた場合はキャンセル料100％（商品代+発送後の場合は送料）を頂戴しますのでご了承ください。</p>
+
+        <h2 class="guide-heading-a01">■ 返品</h2>
+        <p class="guide-text">原則としてお客様のご都合による返品はご遠慮いただいております。<br>天災や異常気象、交通事情による遅延の場合も返品や再送はいたしかねます。<br>万が一ご注文と違う商品が届いた場合は、商品代金および送料は弊社が負担いたします。</p>
+
+        <h2 class="guide-heading-a01">■ お問い合わせ先</h2>
+        <div class="guide-define-list">
+        <dl>
+          <dt>販売事業社名</dt>
+          <dd>株式会社　肥後やまと</dd>
+        </dl>
+        <dl>
+          <dt>販売責任者</dt>
+          <dd>原田幸二</dd>
+        </dl>
+        <dl>
+          <dt>所在地</dt>
+          <dd>〒861-3784　熊本県上益城郡山都町川野362</dd>
+        </dl>
+        <dl>
+          <dt>TEL</dt>
+          <dd><a href="tel:0967720565">0967-72-0565</a></dd>
+        </dl>
+        <dl>
+          <dt>MAIL</dt>
+          <dd><a href="mailto:higo-yamato@poppy.ocn.ne.jp">higo-yamato@poppy.ocn.ne.jp</a></dd>
+        </dl>
+        </div>
+
+        {% comment %} {{ page.content }} {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>

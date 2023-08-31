@@ -1,0 +1,46 @@
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+<div class="yamato-product-card">
+  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {%- assign preview_image = product.featured_media.preview_image -%}
+  {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  {% unless preview_image == blank %}
+    {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+  {% endunless %}
+  <a href="{{ product.url | within: collection }}">
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <div class="yamato-product-card-container">
+      {% if product.type == '山の都のオーガニック野菜セット' or product.type == 'オーガニック野菜' %}
+        <span class="icon-organic-jas"><img src="{{ 'icon-organic-jas.png' | asset_url }}" alt=""></span>
+      {% endif %}
+      {%- for tag in product.tags -%}
+        {%- if tag == 'オーガニック野菜（単品）' -%}
+          <span class="icon-organic-jas"><img src="{{ 'icon-organic-jas.png' | asset_url }}" alt=""></span>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in product.tags -%}
+        {%- if tag == 'お米セット' -%}
+          <span class="icon-rice-set"><img src="{{ 'rice-set-icon_2x.jpg' | asset_url }}" alt=""></span>
+        {%- endif -%}
+      {%- endfor -%}
+      <div class="yamato-product-card-image-wrapper">
+        <img class="grid-view-item__image" src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}">
+      </div><!-- /.yamato-product-card-image-wrapper -->
+    </div><!-- /.yamato-product-card-container -->
+    <dl class="yamato-product-card-info">
+      <dt>{{ product.title }}</dt>
+      <dd>{% include 'product-price-listing', product: product, show_vendor: false %}</dd>
+      <dd class="sp-margin">&nbsp;</dd>
+    </dl>
+  </a>
+</div>

@@ -1,0 +1,56 @@
+{% comment %}
+  以下を取得し、ディスカウントが開始されているかどうかを判定する
+  - 現在日 = current_date
+  - クーポンディスカウント開始日 = scheduled_date
+  - 判定 = date_difference (現在日から開始日を引いたもの)
+{% endcomment %}
+{% assign current_date = 'now' | date: '%s' %}
+{% assign scheduled_date = shop.metafields.coupon.schedule.value | date: '%s' %}
+{% assign date_difference = current_date | minus: scheduled_date %}
+
+{% if template.name == 'cart' %}
+  {% if shop.metafields.coupon.code.value.size > 0 %}
+  <div class="coupon">
+    <dl class="coupon__container">
+      <dt>
+        {% if shop.metafields.coupon.header.value.size > 0 %}
+          {{ shop.metafields.coupon.header.value }}
+        {% else %}
+          クーポンコードをゲット
+        {% endif %}
+        {% render 'icon-triangle-down' %}
+      </dt>
+      <dd>
+        <div class="coupon__display">
+          <input type="text" id="coupon__field" class="coupon__code" value="{{ shop.metafields.coupon.code.value }}" readonly="readonly">
+          <button class="coupon__clipboard" data-clipboard-text="{{ shop.metafields.coupon.code.value }}">{% render 'icon-copy' %}コピー</button>
+          <ins class="coupon__tooltip"><span class="coupon__tooltip-content">コピーしました</span></ins>
+        </div><!-- /.coupon__display -->
+        <div class="coupon__aside">
+          {% if shop.metafields.coupon.text.value.size > 0 %}
+          <div class="coupon__description">
+            {{ shop.metafields.coupon.text.value }}
+          </div><!-- /.coupon__description -->
+          {% endif %}
+          <div class="coupon__help">
+            <a href="#coupon__help-display" class="coupon__help-link">{% render 'icon-help' %}
+            {% if shop.metafields.coupon_help.link.value.size > 0 %}
+              {{ shop.metafields.coupon_help.link.value }}
+            {% else %}
+              クーポンコードの使い方
+            {% endif %}
+            </a>
+            <div id="coupon__help-display" style="display: none;">
+              <div class="coupon__help-display__content">
+                <strong class="coupon__help-title">{{ shop.metafields.coupon_help.link.value }}</strong>
+                {{ shop.metafields.coupon_help.text.value }}
+                <button class="coupon__help-close">閉じる</button>
+              </div>
+            </div><!-- /.coupon__help-display -->
+          </div><!-- /.coupon__help -->
+        </div><!-- /.coupon__aside -->
+      </dd>
+    </dl>
+  </div>
+  {% endif %}
+{% endif %}

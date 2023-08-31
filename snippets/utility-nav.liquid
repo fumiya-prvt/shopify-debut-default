@@ -1,0 +1,48 @@
+<!-- Get: Template Name - {{ template.name }} -->
+<nav class="utility-nav">
+  <ul>
+    <li>
+      <a href="{{ pages['guide'].url }}">
+        <span class="utility-nav__icon">{% render 'icon-orange-bag' %}</span>
+        <span class="utility-nav__label">お買い物ガイド</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ pages['contact'].url }}">
+        <span class="utility-nav__icon">{% render 'icon-orange-mail' %}</span>
+        <span class="utility-nav__label">お問い合わせ</span>
+      </a>
+    </li>
+    {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+    {% if template.name != 'account' %}
+    <li>
+      <a href="{{ routes.account_url }}">
+        <span class="utility-nav__icon">{% render 'icon-orange-account' %}</span>
+        <span class="utility-nav__label">マイページ</span>
+      </a>
+    </li>
+    {% endif %}
+    <li>
+      <a href="{{ routes.account_logout_url }}">
+        <span class="utility-nav__icon">{% render 'icon-orange-signout' %}</span>
+        <span class="utility-nav__label">ログアウト</span>
+      </a>
+    </li>
+    {% else %}
+    <li>
+      <a href="{{ routes.account_login_url }}">
+        <span class="utility-nav__icon">{% render 'icon-orange-signin' %}</span>
+        <span class="utility-nav__label">ログイン</span>
+      </a>
+    </li>
+    {% endif %}
+    {% endif %}
+    <li>
+      <a href="{{ routes.cart_url }}">
+        <span class="utility-nav__icon">{% render 'icon-orange-cart' %}</span>
+        <span class="utility-nav__label">{{ 'layout.cart.title' | t }} <ins>({{ cart.item_count }})</ins></span>
+      </a>
+    </li>
+  </ul>
+</nav>

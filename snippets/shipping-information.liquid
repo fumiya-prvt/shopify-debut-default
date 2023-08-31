@@ -1,0 +1,67 @@
+{% assign heading_node = 'h3' %}
+{% capture heading_attribute %}class="heading-footer-guide01"{% endcapture %}
+{% assign text_class = 'table-footer-guide' %}
+{% assign table_class = 'table-footer-guide' %}
+{% assign notification_class = 'note-list-footer-guide' %}
+
+{% if document_area_flow == 'guide' %}
+  {% assign heading_node = 'h2' %}
+  {% capture heading_class %}class="guide-heading-a01" id="guide"{% endcapture %}
+  {% assign text_class = 'guide-text' %}
+  {% assign table_class = 'guide-table' %}
+  {% assign notification_class = 'guide-note-list' %}
+{% endif; %}
+
+<{{ heading_node }} {{ heading_attribute }}>配送方法・送料</{{ heading_node }}>
+<p class="{{ text_class }}">ヤマト運輸でお届けいたします。<br>生鮮品のため年中クール便でのお届けとなります。</p>
+<table class="{{ table_class }}" data-scrollable="false">
+  <thead>
+    <tr>
+      <th>地域</th>
+      <th>送料（野菜セット1箱の価格）</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign current_date = "now" | date: "%s" %}
+    {% assign target_date = "2021-11-29 00:00:00" | date: "%s" %}
+    {% assign date_difference = current_date | minus: target_date %}
+
+    {% if date_difference >= 0 %}
+      {% assign fee = shop.metafields.shipping_fee %}
+        {% for key in fee %}
+          {% assign shipping_fee = key[1] %}
+          <tr>
+            <th>
+              {% assign area_array = key[0] | split: '_' %}
+              {{ area_array[1] | replace: '地域' }}
+            </th>
+            <td>{{ shipping_fee }}</td>
+          </tr>
+        {% endfor %}
+    {% else %}
+      <tr>
+        <th>九州・中国</th>
+        <td>1,200円</td>
+      </tr>
+      <tr>
+        <th>四国・関西・中部・北陸</th>
+        <td>1,400円</td>
+      </tr>
+      <tr>
+        <th>関東・信越</th>
+        <td>1,600円</td>
+      </tr>
+      <tr>
+        <th>東北</th>
+        <td>1,900円</td>
+      </tr>
+      <tr>
+        <th>北海道・沖縄</th>
+        <td>2,800円</td>
+      </tr>
+    {% endif %}
+  </tbody>
+</table>
+<ul class="{{ notification_class }}">
+  <li>※ 離島への発送はお問い合わせください。</li>
+</ul>
